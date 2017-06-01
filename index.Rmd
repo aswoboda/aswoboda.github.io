@@ -6,8 +6,20 @@ output: html_document
 ---
 
 
-## R Markdown
+## CTREE Resources
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+### Progress Reports Using R Markdown
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+* The [R Markdown file](CTREE2017/ProgressReportWeek8.Rmd)
+* The underlying [Excel gradebook file](CTREE2017/gradebook.xlsx)
+* The [.pdf produced](CTREE2017/ProgressReportWeek8.pdf) by the R Markdown file
+
+### Example R Markdown Slides for Econometrics
+
+* Using R to replicate the heteroskedasticity results from Example 11.11 in Gujarati and Porter (Basic Econometrics): [Rmd file](CTREE2017/EconometricsSlides/Heteroskedasticity/HetSlides.Rmd) and [html slides](CTREE2017/EconometricsSlides/Heteroskedasticity/HetSlides.html)
+
+### Example Shiny Apps for Microeconomics and Econometrics
+
+* [Interactive Supply and Demand Graph](https://aswoboda.shinyapps.io/InteractiveTaxGraph/TaxGraph.Rmd) (with externalities and taxes/subsidies)
+* "[Basket Shooter](https://aswoboda.shinyapps.io/BasketSimulator/BinarySim.Rmd)" Simulation to demonstrate the binomial distribution
+* "[Variance of Regression Slope Estimates](https://aswoboda.shinyapps.io/VarianceOfBetaHat/VarianceDemo.Rmd)" demonstrating the effects of changing sample size, variance of the independent variable, and variance of the error term on the variance of the estimated bivariate regression slope parameter
