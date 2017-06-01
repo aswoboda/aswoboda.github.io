@@ -1,0 +1,57 @@
+---
+output: pdf_document
+---
+\pagenumbering{gobble}
+```{r load data, echo=FALSE, message=FALSE}
+library(xlsx)
+# expect a gradebook to be in the same directory
+econ111 = read.xlsx("gradebook.xlsx", 1)
+```
+
+```{r, echo = F, results='asis', fig.height= 3, fig.width=8, fig.keep='all'}
+for (i in 1:dim(econ111)[1]) {
+  cat(paste0("Hi ", as.character(econ111$First.Name[i]), ",\n \n"))
+  
+  cat("You earned a score of", econ111$Quiz2[i], "points on the recent exam, while the  average score in the class was", round(mean(econ111$Quiz2, na.rm = TRUE), 1), "points. As stated in the syllabus, your performance on this quiz contributed 10 percent to your final grade in the course. Roughly 71 percent of the course grade has been determined thus far based on both quizzes, exam 1, homework, etc. Your weighted average score thus far in the course is", round(econ111$Percent[i]*100), "percent of the points possible thus far. The figure below on the right shows the overall distribution of course scores. \n \n") 
+  
+    cat("Your score in the course is not yet final. Your score has not yet been adjusted to reflect my policy of dropping your lowest homework scores. We are set to have one more short writing assignment this term. Additionally, the final exam will contribute 25 percent to your final grade. It is possible for you to increase your score to .29 * 100 + .71 *", round(econ111$Percent[i]*100), "=",  round(.29*100+.71*econ111$Percent[i]*100), "percent by the end of the term. Hard work will be rewarded. \n \n")
+
+cat("Please let me know if you have any questions! I am happy to try and find a time to meet with you if my existing office hours (M: 1-2:30, T: 1:30-3, and F: 9:45-10:45) don't work for you. \n \n  \n \n \\vspace{.5in}")
+
+  par(mfrow = c(1, 3))
+  par(oma = c(1, 1, 1, 1))
+  hist(econ111$Quiz2, las = 1,
+     col = "grey90",
+     main = "Quiz 2 Score Distribution",
+     xlab = "Points")
+  abline(v = econ111$Quiz2[i], lw = 2, col = "red")
+  mtext(paste0(as.character(econ111$First.Name[i]), "'s score"), 
+        side = 3, line = 0, col = "red")
+  
+  plot(econ111$Exam1, econ111$Quiz2, 
+         las = 1, pch = 16,
+     xlab = "Exam 1 Score", 
+     ylab = "Quiz 2 Score",
+     main = "Quiz 2 and Exam Scores")
+  abline(v = mean(econ111$Exam1, na.rm = TRUE), col = "grey80")
+  abline(h = mean(econ111$Quiz2), col = "grey80")
+  abline(lm(Quiz2 ~ Exam1, data = econ111))
+  points(econ111$Exam1[i], econ111$Quiz2[i], pch = 16, col = "red")
+  mtext(paste0(as.character(econ111$First.Name[i]), "'s scores"), 
+        side = 3, line = 0, col = "red")
+    
+  hist(econ111$Percent*100, las = 1, #breaks = seq(40, 100, 10),
+       main = "Course Score Distribution", 
+       xlab = "Percent of Points Possible",
+       col = "gray90")
+  abline(v = econ111$Percent[i]*100, lw = 2, col = "red")
+  mtext(paste0(as.character(econ111$First.Name[i]), "'s score"), 
+        side = 3, line = 0, col = "red")
+
+  cat(" \n \n")
+  cat("\\newpage \n \n")
+}
+```
+
+
+
