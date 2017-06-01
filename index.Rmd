@@ -10,9 +10,9 @@ output: html_document
 
 ### Progress Reports Using R Markdown
 
-* The [R Markdown file](CTREE2017/ProgressReportWeek8.Rmd)
-* The underlying [Excel gradebook file](CTREE2017/gradebook.xlsx)
-* The [.pdf produced](CTREE2017/ProgressReportWeek8.pdf) by the R Markdown file
+* The [R Markdown file](CTREE2017/ProgressReport/ProgressReportWeek8.Rmd)
+* The underlying [Excel gradebook file](CTREE2017/ProgressReport/gradebook.xlsx)
+* The [.pdf produced](CTREE2017/ProgressReport/ProgressReportWeek8.pdf) by the R Markdown file
 
 ### Example R Markdown Slides for Econometrics
 
