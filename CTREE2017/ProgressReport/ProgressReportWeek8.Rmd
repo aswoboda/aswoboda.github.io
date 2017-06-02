@@ -5,7 +5,7 @@ output: pdf_document
 ```{r load data, echo=FALSE, message=FALSE}
 library(xlsx)
 # expect a gradebook to be in the same directory
-econ111 = read.xlsx("gradebook.xlsx", 1)
+econ111 = read.xlsx("gradedata.xlsx", 1)
 ```
 
 ```{r, echo = F, results='asis', fig.height= 3, fig.width=8, fig.keep='all'}
