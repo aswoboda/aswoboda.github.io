@@ -3,34 +3,374 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECON 287 · Carleton College</title>
+<title>ECON 287 · Economics of Artificial Intelligence · Carleton College</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles.css">
+<style>
+  /* ── CATALOG QUOTE ────────────────────────────── */
+  .catalog-block {
+    border: 1px solid var(--rule);
+    padding: 1.75rem 2rem;
+    margin-top: 1.5rem;
+    position: relative;
+  }
+  .catalog-block::before {
+    content: 'Official course description';
+    position: absolute;
+    top: -0.55rem; left: 1.25rem;
+    background: var(--bg);
+    padding: 0 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+  .catalog-block p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--ink-mid);
+    margin: 0;
+  }
+
+  /* ── QUESTION CARDS ───────────────────────────── */
+  .q-intro {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+  .q-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 0.75rem;
+  }
+  .q-card {
+    background: var(--bg);
+    padding: 1.35rem 1.25rem;
+    transition: background 0.18s ease;
+  }
+  .q-card:hover { background: var(--bg-warm); }
+  .q-topic {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .q-place {
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.6rem;
+  }
+  .q-text {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+  .fine-note {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+    margin-top: 0.75rem;
+  }
+
+  /* ── DEBATE BLOCK ────────────────────────────── */
+  .debate-intro {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.25rem;
+    line-height: 1.7;
+  }
+  .debate-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 1rem;
+  }
+  .debate-side {
+    background: var(--bg);
+    padding: 1.75rem 1.75rem 2rem;
+  }
+  .debate-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .debate-label--opt  { color: var(--teal); }
+  .debate-label--caut { color: var(--gold); }
+  .debate-heading {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .debate-body {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .debate-note {
+    background: var(--bg-warm);
+    border-left: 3px solid var(--navy);
+    padding: 1rem 1.5rem;
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+  .debate-note strong { color: var(--navy); }
+
+  /* ── PILLARS ─────────────────────────────────── */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .pillar { border-top: 2px solid var(--navy); padding-top: 1rem; }
+  .pillar-num {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 0.5rem;
+  }
+  .pillar h3 { font-size: 0.92rem; margin-top: 0; margin-bottom: 0.5rem; color: var(--navy); }
+  .pillar p  { font-size: 0.84rem; line-height: 1.6; margin: 0; }
+
+  /* ── TOOLS ───────────────────────────────────── */
+  .tools-intro {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.75rem;
+    line-height: 1.7;
+  }
+  .tools-group { margin-bottom: 2rem; }
+  .tools-group-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .tool-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0.5rem 1.5rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--bg-warm);
+    align-items: start;
+  }
+  .tool-row:last-child { border-bottom: none; }
+  .tool-name {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding-top: 0.1rem;
+  }
+  .tool-name a { color: var(--teal); text-decoration: none; }
+  .tool-name a:hover { text-decoration: underline; }
+  .tool-desc {
+    font-size: 0.86rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── DISCLAIMER ──────────────────────────────── */
+  .disclaimer {
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+    margin-top: 1rem;
+  }
+  .disclaimer p {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 700px) {
+    .q-grid       { grid-template-columns: 1fr; }
+    .debate-block { grid-template-columns: 1fr; }
+    .pillars      { grid-template-columns: 1fr; }
+    .tool-row     { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <div class="header-tag">Carleton College · Economics · ECON 287</div>
-    <h1>[Course Title]</h1>
-    <p class="tagline">[Course tagline — a single sentence that captures what this course is about.]</p>
+    <div class="header-tag">Carleton College · Economics · ECON 287 · Fall 2026</div>
+    <h1>Economics of<br>Artificial Intelligence</h1>
+    <p class="tagline">AI is the most consequential economic technology of our time. This course studies it seriously — without hype, and without dismissal.</p>
   </div>
 </header>
 
 <main>
 
+  <!-- THE COURSE -->
   <section>
     <div class="label">The Course</div>
-    <h2>Course page coming soon</h2>
-    <p class="lede">[A one-paragraph description of the course that would make a prospective student want to enroll.]</p>
-    <p>Full course information — readings, assignments, and tools — will be posted here before the term begins.</p>
+    <p class="lede">Artificial intelligence is generating more confident predictions than credible evidence. This course brings the tools of economics — labor market analysis, externalities, market structure, and public policy — to bear on questions that are genuinely important and genuinely unsettled.</p>
+    <p>We study AI the way economists study any significant technology: by asking who gains, who loses, what the incentives are, and what the evidence shows. The course takes neither a utopian nor a dismissive view. Both positions exist in the literature, and both deserve to be evaluated on their merits.</p>
+
+    <div class="catalog-block">
+      <p>This course applies microeconomic analysis to the economics of artificial intelligence. Topics include the labor market effects of automation and task displacement, environmental externalities from large-scale computation, AI market structure and the economics of data, and the policy and governance questions that follow. The course takes no fixed position on whether AI is transformative or overhyped — it asks students to evaluate evidence and form defensible positions. Students will use AI tools throughout the term and will be assessed in ways designed around AI complementarity rather than avoidance.</p>
+    </div>
   </section>
+
+  <!-- QUESTIONS -->
+  <section>
+    <div class="label">Questions We Study</div>
+    <h2>The economics underneath the hype</h2>
+    <p class="q-intro">Each of these questions has a large literature and a contested answer. Part of what this course teaches is how to read that literature — and how to resist the temptation to choose a side based on temperament rather than evidence.</p>
+
+    <div class="q-grid">
+      <div class="q-card">
+        <div class="q-topic">Labor &amp; Automation</div>
+        <div class="q-place">U.S. Labor Market</div>
+        <p class="q-text">Which tasks are automated by AI — and does that mean substitution or complementation? The evidence is more complicated than either "AI takes all the jobs" or "AI creates new ones."</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Wages &amp; Productivity</div>
+        <div class="q-place">Firms &amp; Workers</div>
+        <p class="q-text">When AI raises a firm's output per worker, who captures the surplus? Labor economics has precise things to say about the conditions that determine whether productivity gains become wage gains.</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Environmental Costs</div>
+        <div class="q-place">Data Centers, U.S.</div>
+        <p class="q-text">A frontier AI query uses roughly 10x the electricity of a standard web search. Data centers are the fastest-growing load on the U.S. grid and consume enormous quantities of fresh water. What are the real costs — and who pays them?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Market Structure &amp; Power</div>
+        <div class="q-place">Global AI Industry</div>
+        <p class="q-text">Frontier AI requires massive compute, proprietary data, and specialized talent — concentrated in a handful of firms. Is this a natural monopoly? What do industrial organization and competition policy say about it?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Data as a Resource</div>
+        <div class="q-place">Training Data Markets</div>
+        <p class="q-text">Training data is the raw material of AI. Who owns it? Who should? The economics of information goods is unusual — non-rival, hard to price, subject to network effects — and AI has made those unusual properties matter more.</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Policy &amp; Governance</div>
+        <div class="q-place">Regulation, U.S. &amp; EU</div>
+        <p class="q-text">Should AI-generated content require disclosure? Should training data use require compensation? Economics cannot resolve these questions alone — but it can clarify exactly what is at stake in each of them.</p>
+      </div>
+    </div>
+    <p class="fine-note">These are organizing questions, not a fixed reading list. The AI economics literature is moving fast — and that is part of what makes this course interesting to teach and to take.</p>
+  </section>
+
+  <!-- THE DEBATE -->
+  <section>
+    <div class="label">The Central Debate</div>
+    <h2>Boomers vs. Doomers</h2>
+    <p class="debate-intro">The AI economics literature is organized around a real disagreement — not a partisan one, but a genuine empirical dispute about whether this technology is more like the ones that came before or categorically different. Both positions have serious economists behind them. Both deserve to be taken seriously as economic arguments, not just as vibes.</p>
+
+    <div class="debate-block">
+      <div class="debate-side">
+        <div class="debate-label debate-label--opt">The Case for Optimism</div>
+        <div class="debate-heading">"We have been here before."</div>
+        <p class="debate-body">Historical analogies hold. Every major technology wave — steam, electricity, computing — displaced workers in the short run and created more jobs and higher wages in the long run. AI automates tasks, not whole jobs; workers are freed for higher-value work. Productivity gains accumulate and eventually raise living standards broadly. The adjustment is real, but so is the payoff.</p>
+      </div>
+      <div class="debate-side">
+        <div class="debate-label debate-label--caut">The Case for Caution</div>
+        <div class="debate-heading">"This time may be different."</div>
+        <p class="debate-body">Prior waves automated physical tasks while leaving cognitive work to humans. AI automates cognitive tasks — and improves at a pace that may outrun labor market adjustment. The workers most exposed are not low-skill; they are mid-skill, white-collar, and concentrated in sectors that historically served as the path into the middle class. The transition mechanism that worked for steam looms may not work here.</p>
+      </div>
+    </div>
+    <div class="debate-note">
+      <strong>The course's position:</strong> economics gives us tools to evaluate both claims — and to resist the temptation to choose between them based on temperament rather than evidence. By the end of the term, you will have a grounded view of where the evidence points and what remains genuinely uncertain.
+    </div>
+  </section>
+
+  <!-- WHAT YOU DO -->
+  <section>
+    <div class="label">What You'll Do</div>
+    <h2>Three things, done carefully</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>Read critically</h3>
+        <p>Economic research on AI moves fast — and quality varies enormously. We read carefully: distinguishing results that hold up from claims that don't, and asking what an honest reading of the evidence actually supports.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>Work with AI deliberately</h3>
+        <p>You will use AI tools in structured assignments — a replication exercise, a literature synthesis, written work where AI assistance is explicitly expected and explicitly discussed. The skill is working with AI critically, not just efficiently.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Develop a position</h3>
+        <p>The final project is a structured economic argument about one dimension of AI: labor markets, environmental costs, market structure, or policy. The goal is not a balanced "on the one hand" essay — it is a defensible claim, supported by evidence, with an honest accounting of what could be wrong.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI IN THIS COURSE -->
+  <section>
+    <div class="label">AI in This Course</div>
+    <h2>The subject and the medium</h2>
+    <p class="tools-intro">This course treats AI tools as both its subject matter and its medium. Using them well — critically, deliberately, aware of their failure modes — is itself a learning objective. The goal is not to avoid AI or to use it uncritically, but to develop the habits of a thoughtful practitioner: knowing when to trust the output, when to push back, and when to go find the primary source yourself.</p>
+
+    <div class="tools-group">
+      <div class="tools-group-label">For Research &amp; Literature</div>
+      <div class="tool-row">
+        <div class="tool-name"><a href="https://elicit.com" target="_blank" rel="noopener">Elicit</a></div>
+        <p class="tool-desc">AI-powered academic research assistant. Useful for mapping a literature quickly — who has studied this question, with what methods, and what they found. The first draft of a literature review, not the final one.</p>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name"><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a></div>
+        <p class="tool-desc">Upload a set of papers and interrogate them as a collection. "What identification strategies do these papers use?" "Where do they disagree about mechanisms?" Particularly useful for the literature synthesis assignment.</p>
+      </div>
+    </div>
+
+    <div class="tools-group">
+      <div class="tools-group-label">For Writing &amp; Analysis</div>
+      <div class="tool-row">
+        <div class="tool-name"><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></div>
+        <p class="tool-desc">Useful for interrogating a paper's argument ("what is the key assumption and is it plausible?"), drafting and refining written work, and thinking through economic logic. Works best when you bring a genuine question and push back on answers that seem too tidy.</p>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name"><a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a></div>
+        <p class="tool-desc">AI-assisted coding in R or Python for the replication exercise. The skill being developed is working with AI-generated code critically: understanding what it does, catching its mistakes, and interpreting the output yourself.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p>The economics of AI is moving faster than any syllabus can track. This page reflects the course as planned in spring 2026; readings, cases, and tools will be confirmed at the start of term. The instability is not a problem — it is part of the subject matter.</p>
+  </div>
 
 </main>
 
 <footer>
-  <p>ECON 287 · Carleton College · Aaron Swoboda</p>
+  <p>ECON 287 · Economics of Artificial Intelligence · Carleton College · Aaron Swoboda · Fall 2026</p>
 </footer>
 
 </body>

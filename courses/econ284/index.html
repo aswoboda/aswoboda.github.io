@@ -3,34 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECON 284 · Carleton College</title>
+<title>ECON/ENTS 284 · Power, Electricity, Environment, and Policy · Carleton College</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles.css">
+<style>
+  /* ── IN DEVELOPMENT NOTICE ────────────────────── */
+  .dev-notice {
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    background: var(--bg-warm);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.75rem;
+    position: relative;
+  }
+  .dev-notice-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .dev-notice p {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── CATALOG QUOTE ────────────────────────────── */
+  .catalog-block {
+    border: 1px solid var(--rule);
+    padding: 1.75rem 2rem;
+    margin-top: 1.5rem;
+    position: relative;
+  }
+  .catalog-block::before {
+    content: 'Planned course description';
+    position: absolute;
+    top: -0.55rem; left: 1.25rem;
+    background: var(--bg);
+    padding: 0 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+  .catalog-block p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--ink-mid);
+    margin: 0;
+  }
+
+  /* ── PILLARS ─────────────────────────────────── */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .pillar { border-top: 2px solid var(--navy); padding-top: 1rem; }
+  .pillar-num {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 0.5rem;
+  }
+  .pillar h3 { font-size: 0.92rem; margin-top: 0; margin-bottom: 0.5rem; color: var(--navy); }
+  .pillar p  { font-size: 0.84rem; line-height: 1.6; margin: 0; }
+
+  /* ── FOCUS BLOCK ─────────────────────────────── */
+  .focus-block {
+    background: var(--navy);
+    color: #F5F1EA;
+    padding: 2rem 2.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .focus-block-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-lt);
+    margin-bottom: 1rem;
+  }
+  .focus-block h3 {
+    color: var(--gold-lt);
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .focus-block p {
+    color: rgba(245,241,234,0.8);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .focus-block p + p { margin-top: 0.75rem; }
+
+  /* ── WHAT YOU'LL DO PILLARS (3 col) ─────────── */
+  .pillars-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .pillars-3 .pillar { border-top: 2px solid var(--navy); padding-top: 1rem; }
+
+  /* ── DISCLAIMER ──────────────────────────────── */
+  .disclaimer {
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+    margin-top: 1rem;
+  }
+  .disclaimer p {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 700px) {
+    .pillars   { grid-template-columns: 1fr; }
+    .pillars-3 { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <div class="header-tag">Carleton College · Economics · ECON 284</div>
-    <h1>[Course Title]</h1>
-    <p class="tagline">[Course tagline — a single sentence that captures what this course is about.]</p>
+    <div class="header-tag">Carleton College · Economics · Environmental Studies · ECON/ENTS 284 · Spring 2027</div>
+    <h1>Power, Electricity,<br>Environment, and Policy</h1>
+    <p class="tagline">Electricity is the infrastructure of the modern economy. Understanding it — how it's priced, where it comes from, and who it affects — turns out to explain a lot about the world.</p>
   </div>
 </header>
 
 <main>
 
+  <!-- THE COURSE -->
   <section>
     <div class="label">The Course</div>
-    <h2>Course page coming soon</h2>
-    <p class="lede">[A one-paragraph description of the course that would make a prospective student want to enroll.]</p>
-    <p>Full course information — readings, assignments, and tools — will be posted here before the term begins.</p>
+
+    <div class="dev-notice">
+      <div class="dev-notice-label">New Course · In Development</div>
+      <p>This course is being built. The description below reflects where it stands in spring 2026 — the intellectual core is set, and the readings and cases are still taking shape. That means there is room for student questions and interests to influence what the course becomes. If you are drawn to energy questions, reach out before enrollment.</p>
+    </div>
+
+    <p class="lede">The electricity system is undergoing its most significant transformation in a century. Renewable energy is cheaper than ever, fossil fuel plants are retiring faster than expected, and data centers are adding load to the grid faster than new generation can be built. This course examines that transformation from the inside — using economics, environmental analysis, and policy to understand what is happening and why it matters.</p>
+    <p>Electricity is not like other commodities. It must be produced and consumed simultaneously, cannot be easily stored, flows across grids in ways that don't respect ownership, and sits at the center of nearly every major environmental and economic challenge of the next decade. This course takes that seriously — building genuine fluency with how electricity markets work before asking what they should do.</p>
+
+    <div class="catalog-block">
+      <p>This interdisciplinary course examines electricity as economic infrastructure — how power markets are designed, regulated, and changing. Topics include electricity market mechanics (locational marginal pricing, capacity markets, interconnection queues), the economics of renewable energy and grid reliability, data centers as the fastest-growing electricity load in the country, and the distributional consequences of energy transition — including environmental justice, ratepayer impacts, and community conflict over energy siting. The course draws on economics, environmental studies, and public policy and is jointly listed with Environmental Studies. No prior knowledge of energy systems is assumed.</p>
+    </div>
   </section>
+
+  <!-- KEY THEMES -->
+  <section>
+    <div class="label">Key Themes</div>
+    <h2>Four threads through the course</h2>
+    <p>These themes are not separate topics — they are woven together throughout the course. The electricity market design question is inseparable from the transition question; the data center question is inseparable from both. The distributional question runs through everything.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>How electricity markets work</h3>
+        <p>Locational marginal pricing, capacity markets, interconnection queues — these are not technical details. They are the rules that determine who builds what, where, and who pays for it. You cannot analyze energy policy without understanding the market it operates in. The first third of the course builds that foundation.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>The energy transition</h3>
+        <p>Coal plants are retiring. Wind and solar are being built at record pace. Battery storage is improving. But the transition is uneven, contested, and raising new questions about grid reliability, cost allocation, and fairness that policy has not yet answered. We examine the transition as an ongoing, messy economic and political process — not a completed one.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Data centers and AI infrastructure</h3>
+        <p>Data centers are the fastest-growing electricity load in the country — driven by AI training and inference. They are concentrated in specific regions, raise electricity prices for surrounding ratepayers, compete with residential and industrial users for transmission capacity, and consume significant quantities of fresh water. This is one of the most consequential and least-examined energy stories of the moment.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <h3>Who pays, who benefits</h3>
+        <p>The costs and benefits of energy transition are not evenly distributed. Ratepayers in some regions bear higher costs from renewable mandates. Environmental burdens from energy infrastructure fall disproportionately on lower-income communities. Workers in declining fossil fuel industries face concentrated losses while gains disperse broadly. These are distributional questions — and economics is well-suited to ask them, even when the answers are uncomfortable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE DATA CENTER QUESTION -->
+  <section>
+    <div class="label">A Focused Case</div>
+    <h2>Data centers and the grid</h2>
+
+    <div class="focus-block">
+      <div class="focus-block-label">Why this matters for this course</div>
+      <h3>The fastest-growing electricity load in the country — and what to do about it</h3>
+      <p>Data centers are where AI lives. Training a large language model requires the electricity equivalent of thousands of homes for weeks. Inference — every query to every AI system — is ongoing. The scale is large and growing faster than grid planners expected. Several regions have paused interconnection requests because they cannot accommodate the load growth. Others are watching electricity prices rise as data center demand competes with residential and commercial users.</p>
+      <p>This case sits at the intersection of every thread in the course: market design (how are data centers charged for electricity?), environmental externalities (who pays for the water and emissions?), distributional effects (who benefits from AI services, and who pays for the grid upgrades?), and policy (what tools exist to manage this demand, and which would actually work?). We will examine it in detail — partly because it is important, and partly because it is a live, unresolved situation where the analysis is actually useful.</p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU DO -->
+  <section>
+    <div class="label">What You'll Do</div>
+    <h2>Three things, done carefully</h2>
+    <div class="pillars-3">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>Learn the mechanics</h3>
+        <p>You cannot analyze a market you don't understand. The first third of the course builds genuine fluency with electricity market design — enough to read utility filings, FERC orders, and energy policy analyses with comprehension rather than confusion.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>Study real cases</h3>
+        <p>We examine specific, current situations: a data center siting dispute, a coal plant retirement, a contested transmission line, a state clean energy standard. Cases are chosen because the economics is genuinely interesting and the stakes are real — not hypothetical.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Produce original analysis</h3>
+        <p>The major project is an analysis of a specific energy policy question — local, state, or federal. The goal is a piece of work you could show to someone working in energy policy and have them take seriously.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p>This course is new — which means it is being built with care and with your questions in mind. The description above reflects the plan as of spring 2026; readings, cases, and the exact shape of assessments will develop through fall 2026. Students interested in energy, climate, or infrastructure policy are encouraged to reach out before enrollment. Questions and suggestions about course content are genuinely welcome.</p>
+  </div>
 
 </main>
 
 <footer>
-  <p>ECON 284 · Carleton College · Aaron Swoboda</p>
+  <p>ECON/ENTS 284 · Power, Electricity, Environment, and Policy · Carleton College · Aaron Swoboda · Spring 2027</p>
 </footer>
 
 </body>

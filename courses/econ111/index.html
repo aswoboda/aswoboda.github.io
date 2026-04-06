@@ -3,34 +3,301 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECON 111 · Carleton College</title>
+<title>ECON 111 · Principles of Microeconomics · Carleton College</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles.css">
+<style>
+  /* ── CATALOG QUOTE ────────────────────────────── */
+  .catalog-block {
+    border: 1px solid var(--rule);
+    padding: 1.75rem 2rem;
+    margin-top: 1.5rem;
+    position: relative;
+  }
+  .catalog-block::before {
+    content: 'Official course description';
+    position: absolute;
+    top: -0.55rem; left: 1.25rem;
+    background: var(--bg);
+    padding: 0 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+  .catalog-block p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--ink-mid);
+    margin: 0;
+  }
+
+  /* ── QUESTION CARDS ───────────────────────────── */
+  .q-intro {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+  .q-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 0.75rem;
+  }
+  .q-card {
+    background: var(--bg);
+    padding: 1.35rem 1.25rem;
+    transition: background 0.18s ease;
+  }
+  .q-card:hover { background: var(--bg-warm); }
+  .q-topic {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+  .q-text {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+  .fine-note {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+    margin-top: 0.75rem;
+  }
+
+  /* ── PILLARS ─────────────────────────────────── */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .pillar { border-top: 2px solid var(--navy); padding-top: 1rem; }
+  .pillar-num {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 0.5rem;
+  }
+  .pillar h3 { font-size: 0.92rem; margin-top: 0; margin-bottom: 0.5rem; color: var(--navy); }
+  .pillar p  { font-size: 0.84rem; line-height: 1.6; margin: 0; }
+
+  /* ── WHAT TO EXPECT BOX ──────────────────────── */
+  .expect-box {
+    border: 1px solid var(--rule);
+    padding: 1.75rem 2rem;
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2.5rem;
+    position: relative;
+  }
+  .expect-box::before {
+    content: 'What to expect';
+    position: absolute;
+    top: -0.55rem; left: 1.25rem;
+    background: var(--bg);
+    padding: 0 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+  .expect-item h3 {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+  }
+  .expect-item p {
+    font-size: 0.86rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── DISCLAIMER ──────────────────────────────── */
+  .disclaimer {
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+    margin-top: 1rem;
+  }
+  .disclaimer p {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 700px) {
+    .q-grid      { grid-template-columns: 1fr; }
+    .pillars     { grid-template-columns: 1fr; }
+    .expect-box  { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
     <div class="header-tag">Carleton College · Economics · ECON 111</div>
-    <h1>[Course Title]</h1>
-    <p class="tagline">[Course tagline — a single sentence that captures what this course is about.]</p>
+    <h1>Principles of<br>Microeconomics</h1>
+    <p class="tagline">Once you understand how prices work, you start noticing economics in everything — and seeing the world a little differently.</p>
   </div>
 </header>
 
 <main>
 
+  <!-- THE COURSE -->
   <section>
     <div class="label">The Course</div>
-    <h2>Course page coming soon</h2>
-    <p class="lede">[A one-paragraph description of the course that would make a prospective student want to enroll.]</p>
-    <p>Full course information — readings, assignments, and tools — will be posted here before the term begins.</p>
+    <p class="lede">Microeconomics is a way of thinking, not a set of facts to memorize. This course teaches that way of thinking from scratch — using real examples, real data, and policy cases that connect the material to decisions that actually get made.</p>
+    <p>The goal is not to turn you into an economist. It is to give you a set of analytical tools — supply and demand, incentive logic, market failures — that make the world more legible. Once you have them, you find them useful in places you did not expect: traffic patterns, environmental policy, healthcare markets, your own choices about time and money.</p>
+    <p>No prior economics background is assumed or expected. The course is designed for students encountering these ideas for the first time — and it takes that seriously, both in how the material is introduced and in the expectation that engaging with it will require genuine intellectual work.</p>
+
+    <div class="catalog-block">
+      <p>An introduction to microeconomic analysis. Topics include supply and demand, elasticity, consumer and producer theory, market structures, externalities and public goods, and the role of prices in coordinating economic activity. Policy applications appear throughout: taxes, subsidies, price controls, environmental regulation, and labor market policy. Students complete the course with a working understanding of how economists think — including when markets work well and when they fall short. Active learning methods are used throughout, including classroom simulations, empirical exercises, and policy case discussions. No prior economics background is assumed.</p>
+    </div>
   </section>
+
+  <!-- WHAT YOU'LL SEE DIFFERENTLY -->
+  <section>
+    <div class="label">The Lens</div>
+    <h2>What you'll see differently</h2>
+    <p class="q-intro">These are not trick questions. They are the kinds of questions where having an economic framework changes what you notice — and what kind of answer you find convincing. By the end of the term, each of these will look different to you than it does now.</p>
+
+    <div class="q-grid">
+      <div class="q-card">
+        <div class="q-topic">Traffic &amp; Congestion</div>
+        <p class="q-text">Why is rush hour congested even though driving is "free"? What would happen to traffic if we charged for road use — and who would that help or hurt?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Rent Control</div>
+        <p class="q-text">If a city caps rents to make housing more affordable, what happens to the amount of housing available? Why do economists tend to be skeptical of rent control — and is that skepticism warranted?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Environmental Pollution</div>
+        <p class="q-text">If pollution is harmful, why do markets produce so much of it? What tools can fix that — and what are the real tradeoffs between a carbon tax, a cap-and-trade system, and direct regulation?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Healthcare Costs</div>
+        <p class="q-text">Why does healthcare cost so much in the United States, and why do so many people lack it? Supply and demand, information asymmetries, and insurance market design each contribute part of the answer.</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">The Price of Things</div>
+        <p class="q-text">Why does water cost more at a stadium than a grocery store? Why do airline prices change by the hour? Why does the same work pay more in cities than in rural areas? Prices contain information — and reading them is a skill.</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Your Own Decisions</div>
+        <p class="q-text">Sunk costs shouldn't affect your decisions — but they do. You respond to incentives even when you don't notice. Microeconomics gives you a framework for understanding your own choices, which is occasionally unsettling and often useful.</p>
+      </div>
+    </div>
+    <p class="fine-note">These examples appear throughout the course. Students are encouraged to bring their own examples to class — economics is most interesting when it connects to something you actually care about.</p>
+  </section>
+
+  <!-- THE TOOLKIT -->
+  <section>
+    <div class="label">The Toolkit</div>
+    <h2>Three tools that do most of the work</h2>
+    <p>Microeconomics has a large toolkit, but most of the analytical power comes from three core ideas. The course introduces them carefully, applies them repeatedly, and pushes you to use them yourself — not just to recognize them when they appear.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>Supply &amp; Demand</h3>
+        <p>The foundational model — and a genuine analytical framework, not just two intersecting lines. It tells you how prices and quantities are determined, how they respond to change, and who gains and loses when they do. You will use it constantly, in contexts that don't look like economics until you see how to apply it.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>Incentives &amp; Behavior</h3>
+        <p>People respond to incentives. Working out exactly how — and in what direction, and with what unintended consequences — is where the analytical work lives. This is the part of the course that most surprises students. The logic is simple; the applications are not.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Market Failures &amp; Policy</h3>
+        <p>Markets are powerful. They are also incomplete — failing in predictable ways under predictable conditions. Externalities, public goods, information asymmetries: each produces a characteristic pattern of failure and points toward a characteristic policy response. This is where the course connects most directly to real decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU DO -->
+  <section>
+    <div class="label">What You'll Do</div>
+    <h2>Thinking, not memorizing</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>Apply the tools</h3>
+        <p>The goal is not to memorize definitions. It is to develop the habit of applying supply and demand, incentive logic, and market failure analysis to situations you encounter — in the news, in policy debates, in your own life. That habit is what sticks after the course ends.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>Work with real data</h3>
+        <p>Economics is an empirical discipline. We look at real markets and real policy changes — asking what actually happened and whether it matches what the theory predicts. Sometimes it does. Sometimes the data is more interesting than the model.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Engage with policy</h3>
+        <p>Every topic in the course has policy implications. You will read about real debates — minimum wages, carbon taxes, rent control, healthcare — and develop reasoned positions based on analysis, not intuition. Disagreement is expected and welcome.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO EXPECT -->
+  <section>
+    <div class="label">Before You Enroll</div>
+    <h2>Honest expectations</h2>
+    <p>This course is designed to be the entry point to economics at Carleton. It is accessible — but it is not easy. Here is what you should know going in.</p>
+
+    <div class="expect-box">
+      <div class="expect-item">
+        <h3>Prior Background</h3>
+        <p>None required or expected. The course assumes you have not studied economics before. If you have, you will find the material familiar at first and more challenging than you expect as it develops.</p>
+      </div>
+      <div class="expect-item">
+        <h3>Mathematics</h3>
+        <p>Algebra-level. We use math to think, not to compute. You will work with graphs, equations, and basic calculations — but nothing beyond what you did in high school math.</p>
+      </div>
+      <div class="expect-item">
+        <h3>Class Format</h3>
+        <p>Active learning. Class time is for problems, discussion, and simulations — not just lecture. Engagement is expected, and it is where most of the learning actually happens.</p>
+      </div>
+      <div class="expect-item">
+        <h3>Workload</h3>
+        <p>The ideas build on each other. Keeping up matters more in economics than in courses where topics are more independent. Falling behind is hard to recover from. Staying current is worth the effort.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p>ECON 111 is offered multiple times per year. Specific readings, problem sets, and assignments vary by section. This page describes the course as typically taught; your section may differ in some details.</p>
+  </div>
 
 </main>
 
 <footer>
-  <p>ECON 111 · Carleton College · Aaron Swoboda</p>
+  <p>ECON 111 · Principles of Microeconomics · Carleton College · Aaron Swoboda</p>
 </footer>
 
 </body>

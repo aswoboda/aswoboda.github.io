@@ -3,34 +3,395 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ECON 270 · Carleton College</title>
+<title>ECON 270 · Economics of the Public Sector · Carleton College</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../styles.css">
+<style>
+  /* ── CATALOG QUOTE ────────────────────────────── */
+  .catalog-block {
+    border: 1px solid var(--rule);
+    padding: 1.75rem 2rem;
+    margin-top: 1.5rem;
+    position: relative;
+  }
+  .catalog-block::before {
+    content: 'Official course description';
+    position: absolute;
+    top: -0.55rem; left: 1.25rem;
+    background: var(--bg);
+    padding: 0 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+  .catalog-block p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--ink-mid);
+    margin: 0;
+  }
+
+  /* ── FAILURE MODES ───────────────────────────── */
+  .failure-intro {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+  .failure-modes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 1.25rem;
+  }
+  .failure-side {
+    background: var(--bg);
+    padding: 1.75rem 2rem 2rem;
+    border-top: 3px solid var(--navy);
+  }
+  .failure-side--gov { border-top-color: var(--teal); }
+  .failure-side-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+  .failure-side--gov .failure-side-label { color: var(--teal); }
+  .failure-heading {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .failure-body {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+  .failure-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .failure-list li {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--bg-warm);
+  }
+  .failure-list li:last-child { border-bottom: none; }
+  .failure-note {
+    background: var(--bg-warm);
+    border-left: 3px solid var(--navy);
+    padding: 1rem 1.5rem;
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+  .failure-note strong { color: var(--navy); }
+
+  /* ── QUESTION CARDS ───────────────────────────── */
+  .q-intro {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+  .q-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 0.75rem;
+  }
+  .q-card {
+    background: var(--bg);
+    padding: 1.35rem 1.25rem;
+    transition: background 0.18s ease;
+  }
+  .q-card:hover { background: var(--bg-warm); }
+  .q-topic {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .q-place {
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.6rem;
+  }
+  .q-text {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+  .fine-note {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+    margin-top: 0.75rem;
+  }
+
+  /* ── PILLARS ─────────────────────────────────── */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .pillar { border-top: 2px solid var(--navy); padding-top: 1rem; }
+  .pillar-num {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 0.5rem;
+  }
+  .pillar h3 { font-size: 0.92rem; margin-top: 0; margin-bottom: 0.5rem; color: var(--navy); }
+  .pillar p  { font-size: 0.84rem; line-height: 1.6; margin: 0; }
+
+  /* ── POLICY MINOR BOX ────────────────────────── */
+  .minor-box {
+    background: var(--navy);
+    color: #F5F1EA;
+    padding: 2rem 2.25rem;
+    margin-top: 1.5rem;
+  }
+  .minor-box-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-lt);
+    margin-bottom: 1rem;
+  }
+  .minor-box h3 {
+    color: var(--gold-lt);
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  .minor-box p {
+    color: rgba(245,241,234,0.8);
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .minor-box-intro {
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .minor-box-intro p { font-size: 0.92rem; }
+  .minor-paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2.5rem;
+    margin-top: 1.25rem;
+  }
+
+  /* ── DISCLAIMER ──────────────────────────────── */
+  .disclaimer {
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+    margin-top: 1rem;
+  }
+  .disclaimer p {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 700px) {
+    .failure-modes { grid-template-columns: 1fr; }
+    .q-grid        { grid-template-columns: 1fr; }
+    .pillars       { grid-template-columns: 1fr; }
+    .minor-paths   { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <div class="header-tag">Carleton College · Economics · ECON 270</div>
-    <h1>[Course Title]</h1>
-    <p class="tagline">[Course tagline — a single sentence that captures what this course is about.]</p>
+    <div class="header-tag">Carleton College · Economics · ECON 270 · Winter 2026</div>
+    <h1>Economics of<br>the Public Sector</h1>
+    <p class="tagline">Markets fail. Governments fail too. Both deserve equal intellectual rigor.</p>
   </div>
 </header>
 
 <main>
 
+  <!-- THE COURSE -->
   <section>
     <div class="label">The Course</div>
-    <h2>Course page coming soon</h2>
-    <p class="lede">[A one-paragraph description of the course that would make a prospective student want to enroll.]</p>
-    <p>Full course information — readings, assignments, and tools — will be posted here before the term begins.</p>
+    <p class="lede">The question is never simply "market or government?" It is: given what we know about how markets fail and how governments fail, what institutional arrangement is most likely to produce a good outcome here? That question requires tools. This course builds them.</p>
+    <p>The course is organized around a two-failure-modes architecture: market failures on one side, government failures on the other. Students who finish it are skeptical of both pure market solutions and naive government intervention — not out of cynicism, but out of analysis.</p>
+
+    <div class="catalog-block">
+      <p>This course examines the economic case for government intervention in markets and its limits. The first half develops the standard market failure framework — externalities, public goods, information asymmetries, and natural monopoly — and the policy instruments used to address each. The second half introduces the theory of government failure: public choice theory, regulatory capture, unintended consequences, and the political economy of policy design. Cases are drawn from environmental regulation, energy markets, healthcare, and local land use. Students complete the course equipped to evaluate policy proposals rigorously — neither reflexively skeptical of markets nor naively confident in government solutions.</p>
+    </div>
   </section>
+
+  <!-- TWO FAILURE MODES -->
+  <section>
+    <div class="label">The Architecture</div>
+    <h2>Two failure modes, equal treatment</h2>
+    <p class="failure-intro">The intellectual core of this course is a simple but underappreciated symmetry: markets fail in predictable ways, and so do governments. The tools for analyzing each are well-developed. Most policy debates implicitly acknowledge one side of this and ignore the other. This course insists on both.</p>
+
+    <div class="failure-modes">
+      <div class="failure-side">
+        <div class="failure-side-label">Half One</div>
+        <div class="failure-heading">Market Failures: the case for intervention</div>
+        <p class="failure-body">When markets fail to produce efficient outcomes, there is at least a prima facie case for government action. The standard toolkit identifies four failure modes, each with characteristic policy responses:</p>
+        <ul class="failure-list">
+          <li>Externalities — pollution, congestion, noise</li>
+          <li>Public goods — national defense, scientific research, clean air</li>
+          <li>Information asymmetries — health insurance, used cars, financial products</li>
+          <li>Natural monopoly — utilities, broadband, transmission infrastructure</li>
+        </ul>
+      </div>
+      <div class="failure-side failure-side--gov">
+        <div class="failure-side-label">Half Two</div>
+        <div class="failure-heading">Government Failures: the limits of intervention</div>
+        <p class="failure-body">Identifying a market failure does not guarantee that government intervention will improve the outcome. The theory of government failure explains why intervention often falls short — or makes things worse:</p>
+        <ul class="failure-list">
+          <li>Public choice — politicians respond to incentives too</li>
+          <li>Regulatory capture — agencies serving the industries they regulate</li>
+          <li>Unintended consequences — policies producing effects opposite to their intent</li>
+          <li>Rent-seeking — resources spent influencing policy rather than creating value</li>
+        </ul>
+      </div>
+    </div>
+    <div class="failure-note">
+      <strong>The course's conclusion is not a verdict.</strong> It is a framework: a set of questions to ask about any proposed intervention, on both sides of the ledger — that helps you think more clearly about when government action is likely to help, and when it is likely to hurt.
+    </div>
+  </section>
+
+  <!-- POLICY CASES -->
+  <section>
+    <div class="label">Policy Cases</div>
+    <h2>Where the analysis meets the world</h2>
+    <p class="q-intro">The course builds its framework through real policy cases — chosen because they are current, contested, and genuinely illuminated by economic analysis. Each case exercises both failure modes.</p>
+
+    <div class="q-grid">
+      <div class="q-card">
+        <div class="q-topic">Electricity Markets</div>
+        <div class="q-place">Restructured States, U.S.</div>
+        <p class="q-text">Electricity was once provided by regulated monopolies. Many states have restructured toward markets. How do those markets work? What do they get right — and what have they gotten wrong?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Environmental Regulation</div>
+        <div class="q-place">Clean Air Act, U.S.</div>
+        <p class="q-text">Environmental regulation substantially reduced pollution. How? At what cost? What would an economist design differently — and what has the politics of regulation produced that economics alone would not have?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Healthcare</div>
+        <div class="q-place">U.S. Health System</div>
+        <p class="q-text">Health insurance markets fail in identifiable ways: adverse selection, moral hazard, information asymmetry. Government programs address some failures and create others. What economics explains about the U.S. system — and what it doesn't.</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Marijuana Legalization</div>
+        <div class="q-place">Legalized States, U.S.</div>
+        <p class="q-text">A real-time policy experiment. What happens when a previously illegal good is legalized and taxed? What does economics predict about prices, consumption, tax revenue, and the persistence of black markets?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Data Centers &amp; Communities</div>
+        <div class="q-place">Rural &amp; Suburban U.S.</div>
+        <p class="q-text">Data centers consume enormous electricity and water, receive large tax subsidies, and generate local conflict. Who captures the benefits? Who bears the costs? A local public finance and externalities case with national stakes.</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Zoning &amp; Housing</div>
+        <div class="q-place">High-Cost U.S. Cities</div>
+        <p class="q-text">Local governments control land use through zoning — and local governments are especially vulnerable to capture by incumbent property owners. The result: housing is severely restricted in high-demand areas. A government failure case with large aggregate consequences.</p>
+      </div>
+    </div>
+    <p class="fine-note">Cases are updated each term to reflect current policy developments. Students are encouraged to bring their own cases to the discussion.</p>
+  </section>
+
+  <!-- WHAT YOU DO -->
+  <section>
+    <div class="label">What You'll Do</div>
+    <h2>Analysis, not advocacy</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>Diagnose failure modes</h3>
+        <p>Given a policy problem, identify which failure modes are actually present — and which are being asserted without evidence. Distinguishing a real market failure from a claimed one is one of the most useful analytical skills this course develops.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>Evaluate instruments</h3>
+        <p>For each failure mode, multiple policy instruments exist. They differ in efficiency, distributional effects, political feasibility, and robustness to government failure. We compare them honestly — including when the honest answer is "we don't know."</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Write policy briefs</h3>
+        <p>The major assessment is a series of policy briefs: concise, evidence-based arguments for specific positions. AI assistance is explicitly expected and accommodated. The skill being assessed is argument quality, not word production.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLIC POLICY MINOR -->
+  <section>
+    <div class="label">Beyond This Course</div>
+    <h2>The Public Policy Minor</h2>
+    <p>ECON 270 is the anchor course for Carleton's Public Policy minor — the required foundation that the rest of the minor builds on.</p>
+
+    <div class="minor-box">
+      <div class="minor-box-label">Public Policy Minor · Carleton College</div>
+      <div class="minor-box-intro">
+        <p>The minor is designed for students who want to engage seriously with how policy is made, evaluated, and improved — from any disciplinary home. ECON 270 provides the economic framework that runs through all of it.</p>
+      </div>
+      <div class="minor-paths">
+        <div>
+          <h3>Toward More Economics</h3>
+          <p>Students interested in economic policy can continue into upper-level courses in environmental economics, urban economics, and econometrics — building quantitative tools for policy evaluation.</p>
+        </div>
+        <div>
+          <h3>Toward Policy Practice</h3>
+          <p>Students drawn to policy work across disciplines can pair ECON 270 with courses in political science, sociology, and environmental studies — developing breadth alongside the economic framework.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p>Policy cases are chosen to be current — which means they change. Readings and cases are confirmed at the start of each term. Students who want to suggest a case for discussion are encouraged to do so.</p>
+  </div>
 
 </main>
 
 <footer>
-  <p>ECON 270 · Carleton College · Aaron Swoboda</p>
+  <p>ECON 270 · Economics of the Public Sector · Carleton College · Aaron Swoboda · Winter 2026</p>
 </footer>
 
 </body>
