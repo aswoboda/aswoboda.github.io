@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECON 395 · Advanced Topics in Urban Economics · Carleton College</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #F5F1EA;
+    --bg-warm:   #EDE8DF;
+    --ink:       #1A1714;
+    --ink-mid:   #4A4540;
+    --ink-light: #8A8178;
+    --navy:      #1C3150;
+    --teal:      #1E5C52;
+    --gold:      #B8891A;
+    --gold-lt:   #E8C96A;
+    --rule:      #C8C0B4;
+    --serif:     'Playfair Display', Georgia, serif;
+    --body:      'Source Serif 4', Georgia, serif;
+    --mono:      'JetBrains Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html  { font-size: 18px; scroll-behavior: smooth; }
+  body  {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ─────────────────────────────────── */
+  header {
+    background: var(--navy);
+    color: #F5F1EA;
+    padding: 4.5rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 52px 52px;
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute; bottom: -1px; left: 0; right: 0;
+    height: 44px;
+    background: var(--bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .course-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-lt);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .course-tag::before {
+    content: '';
+    display: inline-block;
+    width: 2rem; height: 1px;
+    background: var(--gold-lt);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.25rem;
+    color: #F5F1EA;
+  }
+  .tagline {
+    font-size: 1.05rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(245,241,234,0.72);
+    max-width: 540px;
+    line-height: 1.6;
+  }
+
+  /* ── LAYOUT ──────────────────────────────────── */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem 5rem;
+  }
+  section { margin-bottom: 4rem; }
+
+  /* ── LABELS ──────────────────────────────────── */
+  .label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: var(--rule);
+  }
+
+  /* ── TYPE ────────────────────────────────────── */
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+    margin-top: 1.75rem;
+  }
+  p { color: var(--ink-mid); margin-bottom: 1rem; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); font-weight: 600; }
+  a { color: var(--teal); text-underline-offset: 3px; }
+  a:hover { color: var(--navy); }
+
+  .lede {
+    font-size: 1.18rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--ink);
+    border-left: 3px solid var(--gold);
+    padding-left: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── CATALOG QUOTE ────────────────────────────── */
+  .catalog-block {
+    border: 1px solid var(--rule);
+    padding: 1.75rem 2rem;
+    margin-top: 1.5rem;
+    position: relative;
+  }
+  .catalog-block::before {
+    content: 'Official course description';
+    position: absolute;
+    top: -0.55rem; left: 1.25rem;
+    background: var(--bg);
+    padding: 0 0.5rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+  }
+  .catalog-block p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: var(--ink-mid);
+    margin: 0;
+  }
+
+  /* ── QUESTION CARDS ───────────────────────────── */
+  .q-intro {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+  .q-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 0.75rem;
+  }
+  .q-card {
+    background: var(--bg);
+    padding: 1.35rem 1.25rem;
+    transition: background 0.18s ease;
+  }
+  .q-card:hover { background: var(--bg-warm); }
+  .q-topic {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .q-place {
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.6rem;
+  }
+  .q-text {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0;
+  }
+  .fine-note {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    font-family: var(--mono);
+    letter-spacing: 0.05em;
+    margin-top: 0.75rem;
+  }
+
+  /* ── PILLARS ─────────────────────────────────── */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .pillar { border-top: 2px solid var(--navy); padding-top: 1rem; }
+  .pillar-num {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 0.5rem;
+  }
+  .pillar h3 { font-size: 0.92rem; margin-top: 0; margin-bottom: 0.5rem; color: var(--navy); }
+  .pillar p  { font-size: 0.84rem; line-height: 1.6; margin: 0; }
+
+  /* ── THEORY NOTE ──────────────────────────────── */
+  .theory-note {
+    background: var(--bg-warm);
+    border-left: 3px solid var(--navy);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.75rem;
+    font-size: 0.9rem;
+    color: var(--ink-mid);
+    line-height: 1.7;
+  }
+  .theory-note strong { color: var(--navy); }
+
+  /* ── PAPER CARDS ─────────────────────────────── */
+  .papers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+  }
+  .paper-card {
+    background: var(--bg);
+    padding: 1.35rem 1.25rem 1.5rem;
+    transition: background 0.18s ease;
+    text-decoration: none;
+    display: block;
+    position: relative;
+  }
+  .paper-card::after {
+    content: '↗';
+    position: absolute;
+    top: 0.9rem; right: 1rem;
+    font-size: 0.75rem;
+    color: var(--rule);
+    transition: color 0.15s;
+  }
+  .paper-card:hover { background: var(--bg-warm); }
+  .paper-card:hover::after { color: var(--teal); }
+  .paper-thread {
+    font-family: var(--mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+    padding-right: 1.2rem;
+  }
+  .paper-title {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
+  }
+  .paper-authors {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    font-style: italic;
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+  .paper-hook {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+
+  /* ── JOURNALS ────────────────────────────────── */
+  .journals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .journal-card {
+    background: var(--bg);
+    padding: 1.35rem 1.4rem;
+    text-decoration: none;
+    display: block;
+    transition: background 0.18s ease;
+    position: relative;
+  }
+  .journal-card::after {
+    content: '↗';
+    position: absolute;
+    top: 0.9rem; right: 1rem;
+    font-size: 0.75rem;
+    color: var(--rule);
+    transition: color 0.15s;
+  }
+  .journal-card:hover { background: var(--bg-warm); }
+  .journal-card:hover::after { color: var(--teal); }
+  .journal-abbr {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .journal-name {
+    font-family: var(--serif);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    padding-right: 1.2rem;
+  }
+  .journal-desc {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* ── RECENT PAPERS NOTE ───────────────────────── */
+  .recent-papers-note {
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--teal);
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.25rem;
+  }
+  .rpn-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.85rem;
+  }
+  .rpn-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rpn-list li {
+    font-family: var(--serif);
+    font-size: 0.86rem;
+    font-style: italic;
+    color: var(--ink-mid);
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--bg-warm);
+    line-height: 1.5;
+  }
+  .rpn-list li:last-child { border-bottom: none; }
+
+  /* ── TOOLS ───────────────────────────────────── */
+  .tools-intro {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.75rem;
+    line-height: 1.7;
+  }
+  .tools-group { margin-bottom: 2rem; }
+  .tools-group-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .tool-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0.5rem 1.5rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--bg-warm);
+    align-items: start;
+  }
+  .tool-row:last-child { border-bottom: none; }
+  .tool-name {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding-top: 0.1rem;
+  }
+  .tool-name a { color: var(--teal); text-decoration: none; }
+  .tool-name a:hover { text-decoration: underline; }
+  .tool-desc {
+    font-size: 0.86rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── COMPS BOX ───────────────────────────────── */
+  .comps-box {
+    background: var(--navy);
+    color: #F5F1EA;
+    padding: 2rem 2.25rem;
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 2.5rem;
+  }
+  .comps-intro { grid-column: 1 / -1; }
+  .comps-box h3 {
+    color: var(--gold-lt);
+    font-family: var(--serif);
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  .comps-box p {
+    color: rgba(245,241,234,0.8);
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .comps-intro p { font-size: 0.92rem; }
+  .comps-date {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--gold-lt);
+    opacity: 0.7;
+    margin-top: 0.6rem;
+  }
+
+  /* ── DISCLAIMER ──────────────────────────────── */
+  .disclaimer {
+    border-top: 1px solid var(--rule);
+    padding-top: 2rem;
+    margin-top: 1rem;
+  }
+  .disclaimer p {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--ink-light);
+    line-height: 1.7;
+  }
+
+  /* ── FOOTER ──────────────────────────────────── */
+  footer {
+    background: var(--bg-warm);
+    border-top: 1px solid var(--rule);
+    padding: 2rem;
+    text-align: center;
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin: 0;
+  }
+
+  /* ── ANIMATIONS ──────────────────────────────── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .header-inner > * { animation: fadeUp 0.6s ease both; }
+  .course-tag { animation-delay: 0.05s; }
+  h1          { animation-delay: 0.15s; }
+  .tagline    { animation-delay: 0.25s; }
+
+  /* ── RESPONSIVE ──────────────────────────────── */
+  @media (max-width: 700px) {
+    .q-grid        { grid-template-columns: 1fr; }
+    .papers-grid   { grid-template-columns: 1fr; }
+    .journals-grid { grid-template-columns: 1fr; }
+    .pillars       { grid-template-columns: 1fr; }
+    .comps-box     { grid-template-columns: 1fr; }
+    .comps-intro   { grid-column: 1; }
+    .tool-row      { grid-template-columns: 1fr; }
+    h1             { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="course-tag">Carleton College · Economics · ECON 395-04 · Fall 2026</div>
+    <h1>Advanced Topics<br>in Urban Economics</h1>
+    <p class="tagline">Cities are the world's most complex social experiments. This course teaches you to analyze them.</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- THE COURSE -->
+  <section>
+    <div class="label">The Course</div>
+    <p class="lede">Where you live shapes nearly everything about your economic life — your school, your commute, your exposure to pollution, your access to opportunity. Urban economics takes that seriously. This course gives you the tools to study it rigorously.</p>
+    <p>Cities are constantly generating policy changes, infrastructure investments, and demographic shifts — each one a potential natural experiment. We study them with the methods of applied microeconomics: difference-in-differences, regression discontinuity, and hedonic pricing. The goal is not to survey urban economics broadly, but to develop genuine facility with causal inference and apply it to questions that matter.</p>
+
+    <div class="catalog-block">
+      <p>This seminar uses cities as a laboratory for understanding how economic forces shape where people live, work, and thrive. We will examine a range of topics in urban economics including housing markets and affordability, neighborhood segregation, local labor markets, transportation, and environmental quality. We develop facility with causal inference methods including difference-in-differences, regression discontinuity, and hedonic pricing to empirically analyze these topics. The ultimate objectives are to achieve an advanced understanding of urban economies, to read and evaluate academic research, and to develop a well-specified empirical research proposal — including research question, relevant literature, data sources, and empirical strategy — that students could pursue in subsequent independent work.</p>
+    </div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section>
+    <div class="label">Questions We Study</div>
+    <h2>The city as a laboratory</h2>
+    <p class="q-intro">Urban economists study questions where the answer matters for real people in specific places — and where careful research design can get us close to a causal answer. Here is a sample of the kinds of questions this seminar takes seriously.</p>
+
+    <div class="q-grid">
+      <div class="q-card">
+        <div class="q-topic">Housing &amp; Affordability</div>
+        <div class="q-place">St. Paul, MN · San Francisco, CA</div>
+        <p class="q-text">When cities enact rent control, does it protect tenants — or shrink the housing supply they depend on? What does the evidence actually show?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Neighborhood Change</div>
+        <div class="q-place">Cities across the U.S.</div>
+        <p class="q-text">When a neighborhood gentrifies, who benefits and who is displaced? Can we measure the causal effect of rising rents on longtime residents?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Transportation</div>
+        <div class="q-place">Twin Cities · Seattle, WA</div>
+        <p class="q-text">A new transit station opens and nearby property values rise. But whose? Does better transit access reduce inequality, or mainly raise the cost of living close to it?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Environmental Quality</div>
+        <div class="q-place">Polluting facilities, U.S.</div>
+        <p class="q-text">Who ends up living near highways, industrial sites, and landfills? Is it income, race, or something else driving the pattern — and how would we know?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Schools &amp; Opportunity</div>
+        <div class="q-place">School district boundaries</div>
+        <p class="q-text">Parents pay large premiums to live near high-rated schools. How do we separate the value of school quality from the value of the neighborhood — and does school quality actually change outcomes?</p>
+      </div>
+      <div class="q-card">
+        <div class="q-topic">Cities &amp; the Economy</div>
+        <div class="q-place">220 U.S. metro areas</div>
+        <p class="q-text">Zoning restrictions in New York and San Francisco prevent workers from moving to high-productivity places. How much does that cost the national economy?</p>
+      </div>
+    </div>
+    <p class="fine-note">These are illustrative questions, not a fixed syllabus. Part of this seminar is learning to formulate your own.</p>
+  </section>
+
+  <!-- WHAT YOU DO -->
+  <section>
+    <div class="label">What You'll Do</div>
+    <h2>Three things, done well</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>Read like a researcher</h3>
+        <p>We read empirical papers actively — diagnosing identification strategies, locating assumptions, asking what a better design would look like. You will leave able to evaluate applied economic research, not just describe it.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>Replicate to understand</h3>
+        <p>Before building your own study, you will work through an existing paper's data and methods. Understanding why a research design works — or doesn't — is the foundation for designing something better.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Design a study</h3>
+        <p>The central deliverable is a well-specified research prospectus: a question, a natural experiment, a comparison group, the data you would need, and an honest accounting of what could go wrong.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAMPLE PAPERS -->
+  <section>
+    <div class="label">Example Papers</div>
+    <h2>Six threads, six landmarks</h2>
+    <p>Urban economics is organized around durable research threads — each one built up over decades, each one still producing new work. Below are six papers worth reading before the term begins: one landmark per thread, chosen because each one asks a clean question, exploits a natural experiment, and produced a result that surprised people. That combination is the template.</p>
+
+    <div class="theory-note">
+      <strong>A note on theory.</strong> Before we engage the empirical literature, we start with the Alonso-Muth-Mills monocentric city model — a simple, elegant theory of how land use and rents should vary with distance from the city center. Its predictions are testable with basic data. One of the first things we do is ask: how well does it hold up? That question turns out to open most of the threads below.
+    </div>
+
+    <div class="papers-grid">
+
+      <a class="paper-card" href="https://web.stanford.edu/~diamondr/DMQ.pdf" target="_blank" rel="noopener">
+        <div class="paper-thread">Housing &amp; Rent Control</div>
+        <div class="paper-title">The Effects of Rent Control Expansion on Tenants, Landlords, and Inequality</div>
+        <div class="paper-authors">Diamond, McQuade &amp; Qian · AER 2019</div>
+        <p class="paper-hook">A 1994 SF ballot initiative accidentally created a natural experiment. Rent control helped incumbents stay — but landlords converted to condos, ultimately raising citywide rents and accelerating gentrification. The policy achieved the opposite of its goal.</p>
+      </a>
+
+      <a class="paper-card" href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/research_papers/9729.html" target="_blank" rel="noopener">
+        <div class="paper-thread">Schools &amp; Sorting</div>
+        <div class="paper-title">Do Better Schools Matter? Parental Valuation of Elementary Education</div>
+        <div class="paper-authors">Black · QJE 1999</div>
+        <p class="paper-hook">A boundary discontinuity design: compare houses on opposite sides of an attendance district line. They're in the same neighborhood, pay the same taxes — they differ only in which elementary school the child attends. The premium for the better school is large and precisely estimated.</p>
+      </a>
+
+      <a class="paper-card" href="https://eml.berkeley.edu/~moretti/growth.pdf" target="_blank" rel="noopener">
+        <div class="paper-thread">Cities &amp; Macro Growth</div>
+        <div class="paper-title">Housing Constraints and Spatial Misallocation</div>
+        <div class="paper-authors">Hsieh &amp; Moretti · AEJ: Macro 2019</div>
+        <p class="paper-hook">Zoning in New York and San Francisco prevents workers from moving to high-productivity cities. The aggregate cost: U.S. GDP growth was roughly 36% lower from 1964 to 2009 than it would have been with freer housing markets. A local policy question with national stakes.</p>
+      </a>
+
+      <a class="paper-card" href="https://opportunityatlas.org" target="_blank" rel="noopener">
+        <div class="paper-thread">Neighborhoods &amp; Mobility</div>
+        <div class="paper-title">The Opportunity Atlas</div>
+        <div class="paper-authors">Chetty, Friedman, Hendren et al. · NBER 2018</div>
+        <p class="paper-hook">Using tax records covering nearly all Americans, this project maps intergenerational mobility at the neighborhood level. Where you grow up matters enormously for where you end up — and the variation is hyper-local. Click the link and look up where you're from.</p>
+      </a>
+
+      <a class="paper-card" href="https://www.nber.org/papers/w9523" target="_blank" rel="noopener">
+        <div class="paper-thread">Environment &amp; Health</div>
+        <div class="paper-title">Does Air Quality Matter? Evidence from the Housing Market</div>
+        <div class="paper-authors">Chay &amp; Greenstone · JPE 2005</div>
+        <p class="paper-hook">The Clean Air Act forced some counties to reduce pollution and left others unchanged. A natural experiment. Counties with cleaner air saw property values rise. The hedonic framework reveals what people actually pay for clean air — and the answer is large.</p>
+      </a>
+
+      <a class="paper-card" href="https://www.jtlu.org/index.php/jtlu/article/view/1096" target="_blank" rel="noopener">
+        <div class="paper-thread">Transportation</div>
+        <div class="paper-title">Effect of Light Rail Transit on Nearby Property Values: Evidence from Seattle</div>
+        <div class="paper-authors">Dubé et al. · JTLU 2018</div>
+        <p class="paper-hook">A clean DiD design around Seattle's new light rail. The answer wasn't what transit advocates expected: effects varied dramatically by station and were negative in some neighborhoods. Context, not just infrastructure, determines outcomes — a lesson that runs through the whole course.</p>
+      </a>
+
+    </div>
+    <p class="fine-note">Links go to freely accessible versions. Carleton library provides access to paywalled journals for all assigned readings.</p>
+  </section>
+
+  <!-- JOURNALS -->
+  <section>
+    <div class="label">Where the Research Lives</div>
+    <h2>The journals of urban economics</h2>
+    <p>Want to see what researchers in this field are working on right now? The journals below publish the kind of empirical work this seminar engages with. Browsing a recent table of contents — even just the titles — is a fast way to get a sense of how broad the field actually is.</p>
+
+    <div class="journals-grid">
+      <a class="journal-card" href="https://www.sciencedirect.com/journal/journal-of-urban-economics" target="_blank" rel="noopener">
+        <div class="journal-abbr">JUE</div>
+        <div class="journal-name">Journal of Urban Economics</div>
+        <p class="journal-desc">The flagship journal of the field, founded in 1974 by Edwin Mills — one of the architects of the monocentric city model. Publishes empirical and theoretical work across housing, labor markets, transportation, crime, and local public finance.</p>
+      </a>
+      <a class="journal-card" href="https://www.sciencedirect.com/journal/regional-science-and-urban-economics" target="_blank" rel="noopener">
+        <div class="journal-abbr">RSUE</div>
+        <div class="journal-name">Regional Science and Urban Economics</div>
+        <p class="journal-desc">Broader geographic scope than JUE, covering both urban and regional questions. Strong on spatial methods, agglomeration economies, and land use. Many hedonic pricing papers appear here.</p>
+      </a>
+      <a class="journal-card" href="https://www.aeaweb.org/journals/pol" target="_blank" rel="noopener">
+        <div class="journal-abbr">AEJ:POL</div>
+        <div class="journal-name">American Economic Journal: Economic Policy</div>
+        <p class="journal-desc">Not exclusively urban, but publishes some of the most-read applied work on housing, zoning, environmental regulation, and place-based policy. Papers here tend to have the cleanest identification strategies and the widest readership outside the field.</p>
+      </a>
+      <a class="journal-card" href="https://www.jtlu.org" target="_blank" rel="noopener">
+        <div class="journal-abbr">JTLU</div>
+        <div class="journal-name">Journal of Transport and Land Use</div>
+        <p class="journal-desc">Open access. Focused on the intersection of transportation systems and land use — transit, accessibility, housing near stations, and induced demand. One of the few major urban journals where everything is freely readable without institutional access.</p>
+      </a>
+    </div>
+
+    <div class="recent-papers-note">
+      <div class="rpn-label">A sample of recent JUE titles — to show how broad "urban economics" actually is</div>
+      <ul class="rpn-list">
+        <li>"Elasticities and tax incidence in urban ridesharing markets: Evidence from Chicago"</li>
+        <li>"Death, destruction, and growth in cities: Entrepreneurial capital and economic geography after the 1918 influenza"</li>
+        <li>"Slow traffic, fast food: The effects of time lost on food store choice"</li>
+        <li>"Black Lives Matter's effect on police lethal use of force"</li>
+        <li>"Migration crisis in the local news: Evidence from the French–Italian border"</li>
+      </ul>
+    </div>
+
+    <p style="font-size:0.78rem; color:var(--ink-light); font-family:var(--mono); letter-spacing:0.05em; margin-top:1rem;">Carleton library provides access to all paywalled journals above. JTLU is open access.</p>
+  </section>
+
+  <!-- RESEARCH IN 2026 -->
+  <section>
+    <div class="label">Research in 2026</div>
+    <h2>The modern research toolkit</h2>
+    <p class="tools-intro">The tools available for doing economic research are changing fast — faster than most syllabi acknowledge. This seminar takes that seriously. We will experiment with a range of tools across the research process, using a live research question as our shared testbed. The goal is not to prescribe a workflow but to build enough hands-on experience that you can form your own informed view of what helps and what doesn't. Strong opinions about these tools are common; well-grounded experience is rarer. This seminar is an opportunity to build the latter.</p>
+
+    <div class="tools-group">
+      <div class="tools-group-label">Finding &amp; Synthesizing Literature</div>
+      <div class="tool-row">
+        <div class="tool-name"><a href="https://elicit.com" target="_blank" rel="noopener">Elicit</a></div>
+        <p class="tool-desc">An AI-powered research assistant built for academic literature. Useful for generating a first map of a research area — who has studied this question, with what methods, and what did they find? Worth learning to query well; outputs improve significantly with practice.</p>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name"><a href="https://www.connectedpapers.com" target="_blank" rel="noopener">Connected Papers</a></div>
+        <p class="tool-desc">Visualizes the citation network around a seed paper — which papers are central to a literature, which are recent departures, what the field considers foundational. A useful complement to keyword search for understanding how a research area is structured.</p>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name"><a href="https://notebooklm.google.com" target="_blank" rel="noopener">NotebookLM</a></div>
+        <p class="tool-desc">Upload a set of PDFs and interrogate them as a collection. Particularly useful early in a research project: "What identification strategies do these papers use?" "Where do they disagree about mechanisms?" Produces a contained knowledge base rather than a freeform web search — which turns out to matter.</p>
+      </div>
+    </div>
+
+    <div class="tools-group">
+      <div class="tools-group-label">Working with Data &amp; Code</div>
+      <div class="tool-row">
+        <div class="tool-name"><a href="https://claude.ai/code" target="_blank" rel="noopener">Claude Code</a></div>
+        <p class="tool-desc">AI-assisted coding in R and Python. We use this in the replication exercise — not to generate code blindly, but to understand what the code does and why. The skill being developed is working with AI-generated code critically: debugging, interpreting output, catching mistakes.</p>
+      </div>
+      <div class="tool-row">
+        <div class="tool-name"><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></div>
+        <p class="tool-desc">Useful across the research process: interrogating a paper ("what is the identification assumption and is it plausible here?"), drafting and refining written work, thinking through research design. Works best when you bring genuine questions and push back on answers that seem too easy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPS -->
+  <section>
+    <div class="label">Comps Connection</div>
+    <h2>This seminar is your launchpad</h2>
+    <p>The research prospectus you develop here is the formal gateway to senior Comps. Two paths are available — and this seminar prepares you for both.</p>
+
+    <div class="comps-box">
+      <div class="comps-intro">
+        <p>The prospectus is due at the end of Week 7. By Week 9 you will know whether it has been approved, and — if approved — you may choose either Comps path. If you are undecided between research and policy careers, this seminar does not force the choice prematurely.</p>
+        <div class="comps-date">Prospectus due: End of Week 7 &nbsp;·&nbsp; Notification: End of Week 9</div>
+      </div>
+      <div>
+        <h3>Primary Research Paper</h3>
+        <p>Modeled on academic research. A full empirical study — question, literature, data, methods, results — typically 25–40 pages. The natural path for students considering graduate school or research-oriented careers.</p>
+      </div>
+      <div>
+        <h3>Policy White Paper</h3>
+        <p>Modeled on think tank and government reports. A rigorous, evidence-based argument for a specific policy position — typically 15–20 pages. The natural path for students headed toward policy, advocacy, or public service.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p>This page reflects the course as envisioned in spring 2026. The research tools, active policy debates, and published literature that anchor the course evolve quickly — and that is part of what makes urban economics interesting right now. Specific readings, cases, and tools will be confirmed at the start of the term.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>ECON 395-04 · Advanced Topics in Urban Economics · Carleton College · Aaron Swoboda · Fall 2026</p>
+</footer>
+
+</body>
+</html>
