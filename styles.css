@@ -1,0 +1,183 @@
+/* ── DESIGN TOKENS ───────────────────────────── */
+:root {
+  --bg:        #F5F1EA;
+  --bg-warm:   #EDE8DF;
+  --ink:       #1A1714;
+  --ink-mid:   #4A4540;
+  --ink-light: #8A8178;
+  --navy:      #1C3150;
+  --teal:      #1E5C52;
+  --gold:      #B8891A;
+  --gold-lt:   #E8C96A;
+  --rule:      #C8C0B4;
+  --serif:     'Playfair Display', Georgia, serif;
+  --body:      'Source Serif 4', Georgia, serif;
+  --mono:      'JetBrains Mono', monospace;
+}
+
+/* ── RESET ───────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { font-size: 18px; scroll-behavior: smooth; }
+body  {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 300;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ─────────────────────────────────── */
+header {
+  background: var(--navy);
+  color: #F5F1EA;
+  padding: 4.5rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
+}
+header::after {
+  content: '';
+  position: absolute; bottom: -1px; left: 0; right: 0;
+  height: 44px;
+  background: var(--bg);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.header-tag {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.header-tag::before {
+  content: '';
+  display: inline-block;
+  width: 2rem; height: 1px;
+  background: var(--gold-lt);
+}
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  color: #F5F1EA;
+}
+.tagline {
+  font-size: 1.05rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(245,241,234,0.72);
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+/* ── LAYOUT ──────────────────────────────────── */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 5rem;
+}
+section { margin-bottom: 4rem; }
+
+/* ── LABELS ──────────────────────────────────── */
+.label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.label::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: var(--rule);
+}
+
+/* ── TYPE ────────────────────────────────────── */
+h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+h3 {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 0.4rem;
+  margin-top: 1.75rem;
+}
+p { color: var(--ink-mid); margin-bottom: 1rem; }
+p:last-child { margin-bottom: 0; }
+strong { color: var(--ink); font-weight: 600; }
+a { color: var(--teal); text-underline-offset: 3px; }
+a:hover { color: var(--navy); }
+
+.lede {
+  font-size: 1.18rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--ink);
+  border-left: 3px solid var(--gold);
+  padding-left: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ── FOOTER ──────────────────────────────────── */
+footer {
+  background: var(--bg-warm);
+  border-top: 1px solid var(--rule);
+  padding: 2rem;
+  text-align: center;
+}
+footer p {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-light);
+  margin: 0;
+}
+
+/* ── ANIMATIONS ──────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.header-inner > * { animation: fadeUp 0.6s ease both; }
+.header-tag { animation-delay: 0.05s; }
+h1          { animation-delay: 0.15s; }
+.tagline    { animation-delay: 0.25s; }
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 700px) {
+  h1 { font-size: 1.8rem; }
+}
