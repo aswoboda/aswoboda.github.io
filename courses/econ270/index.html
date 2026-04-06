@@ -228,12 +228,44 @@
     line-height: 1.7;
   }
 
+  /* ── TOOLS ───────────────────────────────────── */
+  .tools-intro {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.75rem;
+    line-height: 1.7;
+  }
+  .tool-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0.5rem 1.5rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--bg-warm);
+    align-items: start;
+  }
+  .tool-row:last-child { border-bottom: none; }
+  .tool-name {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding-top: 0.1rem;
+  }
+  .tool-name a { color: var(--teal); text-decoration: none; }
+  .tool-name a:hover { text-decoration: underline; }
+  .tool-desc {
+    font-size: 0.86rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
   /* ── RESPONSIVE ──────────────────────────────── */
   @media (max-width: 700px) {
     .failure-modes { grid-template-columns: 1fr; }
     .q-grid        { grid-template-columns: 1fr; }
     .pillars       { grid-template-columns: 1fr; }
     .minor-paths   { grid-template-columns: 1fr; }
+    .tool-row      { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -380,6 +412,26 @@
           <p>Students drawn to policy work across disciplines can pair ECON 270 with courses in political science, sociology, and environmental studies — developing breadth alongside the economic framework.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TOOLS -->
+  <section>
+    <div class="label">Interactive Tools</div>
+    <h2>Explore concepts hands-on</h2>
+    <p class="tools-intro">These interactive apps let you explore course concepts hands-on.</p>
+
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/InteractiveTaxGraph/" target="_blank" rel="noopener">Interactive Tax Graph</a></div>
+      <p class="tool-desc">Tax incidence, deadweight loss, surplus</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/SupplyDemand/" target="_blank" rel="noopener">Supply &amp; Demand</a></div>
+      <p class="tool-desc">Shifts, equilibrium, and interventions</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/TotalSurplusVisualization/" target="_blank" rel="noopener">Total Surplus Visualization</a></div>
+      <p class="tool-desc">Consumer and producer surplus</p>
     </div>
   </section>
 

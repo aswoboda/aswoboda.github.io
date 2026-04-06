@@ -149,11 +149,43 @@
     line-height: 1.7;
   }
 
+  /* ── TOOLS ───────────────────────────────────── */
+  .tools-intro {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    margin-bottom: 1.75rem;
+    line-height: 1.7;
+  }
+  .tool-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0.5rem 1.5rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--bg-warm);
+    align-items: start;
+  }
+  .tool-row:last-child { border-bottom: none; }
+  .tool-name {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding-top: 0.1rem;
+  }
+  .tool-name a { color: var(--teal); text-decoration: none; }
+  .tool-name a:hover { text-decoration: underline; }
+  .tool-desc {
+    font-size: 0.86rem;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
   /* ── RESPONSIVE ──────────────────────────────── */
   @media (max-width: 700px) {
     .q-grid      { grid-template-columns: 1fr; }
     .pillars     { grid-template-columns: 1fr; }
     .expect-box  { grid-template-columns: 1fr; }
+    .tool-row    { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -286,6 +318,58 @@
         <h3>Workload</h3>
         <p>The ideas build on each other. Keeping up matters more in economics than in courses where topics are more independent. Falling behind is hard to recover from. Staying current is worth the effort.</p>
       </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TOOLS -->
+  <section>
+    <div class="label">Interactive Tools</div>
+    <h2>Explore concepts hands-on</h2>
+    <p class="tools-intro">These interactive apps let you explore course concepts hands-on.</p>
+
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/BCsICs/" target="_blank" rel="noopener">Budget Constraints &amp; Indifference Curves</a></div>
+      <p class="tool-desc">Interactive consumer optimization</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/ComparativeAdvantage/" target="_blank" rel="noopener">Comparative Advantage</a></div>
+      <p class="tool-desc">Gains from trade made visual</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/CompetitiveProfitMaximization/" target="_blank" rel="noopener">Competitive Profit Maximization</a></div>
+      <p class="tool-desc">Price, MC, and ATC curves</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/CostCurves/" target="_blank" rel="noopener">Cost Curves</a></div>
+      <p class="tool-desc">MC, ATC, and AVC interactively</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/InteractiveTaxGraph/" target="_blank" rel="noopener">Interactive Tax Graph</a></div>
+      <p class="tool-desc">Tax incidence, deadweight loss, surplus</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/LR/" target="_blank" rel="noopener">Long Run Equilibrium</a></div>
+      <p class="tool-desc">Zero profit condition in competitive markets</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/LRCompetition/" target="_blank" rel="noopener">Long Run Competition</a></div>
+      <p class="tool-desc">Entry, exit, and long run equilibrium</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/MarginalRevenue/" target="_blank" rel="noopener">Marginal Revenue</a></div>
+      <p class="tool-desc">MR for monopoly vs. competitive firm</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/PPFs/" target="_blank" rel="noopener">Production Possibility Frontier</a></div>
+      <p class="tool-desc">Opportunity cost and efficiency</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/SupplyDemand/" target="_blank" rel="noopener">Supply &amp; Demand</a></div>
+      <p class="tool-desc">Shifts, equilibrium, and interventions</p>
+    </div>
+    <div class="tool-row">
+      <div class="tool-name"><a href="https://shinyapps.carleton.edu/aswoboda/TotalSurplusVisualization/" target="_blank" rel="noopener">Total Surplus Visualization</a></div>
+      <p class="tool-desc">Consumer and producer surplus</p>
     </div>
   </section>
 
