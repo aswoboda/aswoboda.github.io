@@ -167,6 +167,16 @@
     margin-bottom: 0.6rem;
     line-height: 1.4;
   }
+  .paper-question {
+    font-family: var(--serif);
+    font-size: 0.88rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--bg-warm);
+  }
   .paper-hook {
     font-size: 0.82rem;
     color: var(--ink-mid);
@@ -478,48 +488,73 @@
     <div class="label">The Course</div>
     <p class="lede">Where you live shapes nearly everything about your economic life — your school, your commute, your exposure to pollution, your access to opportunity. Urban economics takes that seriously. This course gives you the tools to study it rigorously.</p>
     <p>Cities are constantly generating policy changes, infrastructure investments, and demographic shifts — each one a potential natural experiment. We study them with the methods of applied microeconomics: difference-in-differences, regression discontinuity, and hedonic pricing. The goal is not to survey urban economics broadly, but to develop genuine facility with causal inference and apply it to questions that matter.</p>
+    <p>Students in this seminar pursue either a primary research paper or a policy white paper for senior Comps — if you're weighing your options, the <a href="#comps">white paper topics for Fall 2026</a> might help you decide.</p>
 
   </section>
 
-  <!-- QUESTIONS -->
+  <!-- QUESTIONS & PAPERS -->
   <section>
     <div class="label">Questions We Study</div>
     <h2>The city as a laboratory</h2>
-    <p class="q-intro">Urban economists study questions where the answer matters for real people in specific places — and where careful research design can get us close to a causal answer. Here is a sample of the kinds of questions this seminar takes seriously.</p>
+    <p>Urban economics is organized around durable research threads — each one built up over decades, each one still producing new work. Below are six papers worth reading before the term begins: one landmark per thread, chosen because each one asks a clean question, exploits a natural experiment, and produced a result that surprised people. That combination is the template.</p>
 
-    <div class="q-grid">
-      <div class="q-card">
-        <div class="q-topic">Housing &amp; Affordability</div>
-        <div class="q-place">St. Paul, MN · San Francisco, CA</div>
-        <p class="q-text">When cities enact rent control, does it protect tenants — or shrink the housing supply they depend on? What does the evidence actually show?</p>
-      </div>
-      <div class="q-card">
-        <div class="q-topic">Neighborhood Change</div>
-        <div class="q-place">Cities across the U.S.</div>
-        <p class="q-text">When a neighborhood gentrifies, who benefits and who is displaced? Can we measure the causal effect of rising rents on longtime residents?</p>
-      </div>
-      <div class="q-card">
-        <div class="q-topic">Transportation</div>
-        <div class="q-place">Twin Cities · Seattle, WA</div>
-        <p class="q-text">A new transit station opens and nearby property values rise. But whose? Does better transit access reduce inequality, or mainly raise the cost of living close to it?</p>
-      </div>
-      <div class="q-card">
-        <div class="q-topic">Environmental Quality</div>
-        <div class="q-place">Polluting facilities, U.S.</div>
-        <p class="q-text">Who ends up living near highways, industrial sites, and landfills? Is it income, race, or something else driving the pattern — and how would we know?</p>
-      </div>
-      <div class="q-card">
-        <div class="q-topic">Schools &amp; Opportunity</div>
-        <div class="q-place">School district boundaries</div>
-        <p class="q-text">Parents pay large premiums to live near high-rated schools. How do we separate the value of school quality from the value of the neighborhood — and does school quality actually change outcomes?</p>
-      </div>
-      <div class="q-card">
-        <div class="q-topic">Cities &amp; the Economy</div>
-        <div class="q-place">220 U.S. metro areas</div>
-        <p class="q-text">Zoning restrictions in New York and San Francisco prevent workers from moving to high-productivity places. How much does that cost the national economy?</p>
-      </div>
+    <div class="theory-note">
+      <strong>A note on theory.</strong> Before we engage the empirical literature, we start with the Alonso-Muth-Mills monocentric city model — a simple, elegant theory of how land use and rents should vary with distance from the city center. Its predictions are testable with basic data. One of the first things we do is ask: how well does it hold up? That question turns out to open most of the threads below.
+    </div>
+
+    <div class="papers-grid">
+
+      <a class="paper-card" href="https://web.stanford.edu/~diamondr/DMQ.pdf" target="_blank" rel="noopener">
+        <div class="paper-thread">Housing &amp; Affordability</div>
+        <p class="paper-question">When cities enact rent control, does it protect tenants — or shrink the housing supply they depend on? What does the evidence actually show?</p>
+        <div class="paper-title">The Effects of Rent Control Expansion on Tenants, Landlords, and Inequality</div>
+        <div class="paper-authors">Diamond, McQuade &amp; Qian · AER 2019</div>
+        <p class="paper-hook">A 1994 SF ballot initiative accidentally created a natural experiment. Rent control helped incumbents stay — but landlords converted to condos, ultimately raising citywide rents and accelerating gentrification. The policy achieved the opposite of its goal.</p>
+      </a>
+
+      <a class="paper-card" href="https://opportunityatlas.org" target="_blank" rel="noopener">
+        <div class="paper-thread">Neighborhood Change</div>
+        <p class="paper-question">When a neighborhood gentrifies, who benefits and who is displaced? Can we measure the causal effect of rising rents on longtime residents?</p>
+        <div class="paper-title">The Opportunity Atlas</div>
+        <div class="paper-authors">Chetty, Friedman, Hendren et al. · NBER 2018</div>
+        <p class="paper-hook">Using tax records covering nearly all Americans, this project maps intergenerational mobility at the neighborhood level. Where you grow up matters enormously for where you end up — and the variation is hyper-local. Click the link and look up where you're from.</p>
+      </a>
+
+      <a class="paper-card" href="https://www.jtlu.org/index.php/jtlu/article/view/1096" target="_blank" rel="noopener">
+        <div class="paper-thread">Transportation</div>
+        <p class="paper-question">A new transit station opens and nearby property values rise. But whose? Does better transit access reduce inequality, or mainly raise the cost of living close to it?</p>
+        <div class="paper-title">Effect of Light Rail Transit on Nearby Property Values: Evidence from Seattle</div>
+        <div class="paper-authors">Dubé et al. · JTLU 2018</div>
+        <p class="paper-hook">A clean DiD design around Seattle's new light rail. The answer wasn't what transit advocates expected: effects varied dramatically by station and were negative in some neighborhoods. Context, not just infrastructure, determines outcomes — a lesson that runs through the whole course.</p>
+      </a>
+
+      <a class="paper-card" href="https://www.nber.org/papers/w9523" target="_blank" rel="noopener">
+        <div class="paper-thread">Environmental Quality</div>
+        <p class="paper-question">Who ends up living near highways, industrial sites, and landfills? Is it income, race, or something else driving the pattern — and how would we know?</p>
+        <div class="paper-title">Does Air Quality Matter? Evidence from the Housing Market</div>
+        <div class="paper-authors">Chay &amp; Greenstone · JPE 2005</div>
+        <p class="paper-hook">The Clean Air Act forced some counties to reduce pollution and left others unchanged. A natural experiment. Counties with cleaner air saw property values rise. The hedonic framework reveals what people actually pay for clean air — and the answer is large.</p>
+      </a>
+
+      <a class="paper-card" href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/research_papers/9729.html" target="_blank" rel="noopener">
+        <div class="paper-thread">Schools &amp; Opportunity</div>
+        <p class="paper-question">How do we separate the value of school quality from the value of the neighborhood — and does school quality actually change outcomes?</p>
+        <div class="paper-title">Do Better Schools Matter? Parental Valuation of Elementary Education</div>
+        <div class="paper-authors">Black · QJE 1999</div>
+        <p class="paper-hook">A boundary discontinuity design: compare houses on opposite sides of an attendance district line. They're in the same neighborhood, pay the same taxes — they differ only in which elementary school the child attends. The premium for the better school is large and precisely estimated.</p>
+      </a>
+
+      <a class="paper-card" href="https://eml.berkeley.edu/~moretti/growth.pdf" target="_blank" rel="noopener">
+        <div class="paper-thread">Cities &amp; the Economy</div>
+        <p class="paper-question">Zoning restrictions prevent workers from moving to high-productivity places. How much does that cost the national economy?</p>
+        <div class="paper-title">Housing Constraints and Spatial Misallocation</div>
+        <div class="paper-authors">Hsieh &amp; Moretti · AEJ: Macro 2019</div>
+        <p class="paper-hook">Zoning in New York and San Francisco prevents workers from moving to high-productivity cities. The aggregate cost: U.S. GDP growth was roughly 36% lower from 1964 to 2009 than it would have been with freer housing markets. A local policy question with national stakes.</p>
+      </a>
+
     </div>
     <p class="fine-note">These are illustrative questions, not a fixed syllabus. Part of this seminar is learning to formulate your own.</p>
+    <p class="fine-note">Links go to freely accessible versions. Carleton library provides access to paywalled journals for all assigned readings.</p>
   </section>
 
   <!-- WHAT YOU DO -->
@@ -543,64 +578,6 @@
         <p>The central deliverable is a well-specified research prospectus: a question, a natural experiment, a comparison group, the data you would need, and an honest accounting of what could go wrong.</p>
       </div>
     </div>
-  </section>
-
-  <!-- EXAMPLE PAPERS -->
-  <section>
-    <div class="label">Example Papers</div>
-    <h2>Six threads, six landmarks</h2>
-    <p>Urban economics is organized around durable research threads — each one built up over decades, each one still producing new work. Below are six papers worth reading before the term begins: one landmark per thread, chosen because each one asks a clean question, exploits a natural experiment, and produced a result that surprised people. That combination is the template.</p>
-
-    <div class="theory-note">
-      <strong>A note on theory.</strong> Before we engage the empirical literature, we start with the Alonso-Muth-Mills monocentric city model — a simple, elegant theory of how land use and rents should vary with distance from the city center. Its predictions are testable with basic data. One of the first things we do is ask: how well does it hold up? That question turns out to open most of the threads below.
-    </div>
-
-    <div class="papers-grid">
-
-      <a class="paper-card" href="https://web.stanford.edu/~diamondr/DMQ.pdf" target="_blank" rel="noopener">
-        <div class="paper-thread">Housing &amp; Rent Control</div>
-        <div class="paper-title">The Effects of Rent Control Expansion on Tenants, Landlords, and Inequality</div>
-        <div class="paper-authors">Diamond, McQuade &amp; Qian · AER 2019</div>
-        <p class="paper-hook">A 1994 SF ballot initiative accidentally created a natural experiment. Rent control helped incumbents stay — but landlords converted to condos, ultimately raising citywide rents and accelerating gentrification. The policy achieved the opposite of its goal.</p>
-      </a>
-
-      <a class="paper-card" href="https://www.newyorkfed.org/medialibrary/media/research/staff_reports/research_papers/9729.html" target="_blank" rel="noopener">
-        <div class="paper-thread">Schools &amp; Sorting</div>
-        <div class="paper-title">Do Better Schools Matter? Parental Valuation of Elementary Education</div>
-        <div class="paper-authors">Black · QJE 1999</div>
-        <p class="paper-hook">A boundary discontinuity design: compare houses on opposite sides of an attendance district line. They're in the same neighborhood, pay the same taxes — they differ only in which elementary school the child attends. The premium for the better school is large and precisely estimated.</p>
-      </a>
-
-      <a class="paper-card" href="https://eml.berkeley.edu/~moretti/growth.pdf" target="_blank" rel="noopener">
-        <div class="paper-thread">Cities &amp; Macro Growth</div>
-        <div class="paper-title">Housing Constraints and Spatial Misallocation</div>
-        <div class="paper-authors">Hsieh &amp; Moretti · AEJ: Macro 2019</div>
-        <p class="paper-hook">Zoning in New York and San Francisco prevents workers from moving to high-productivity cities. The aggregate cost: U.S. GDP growth was roughly 36% lower from 1964 to 2009 than it would have been with freer housing markets. A local policy question with national stakes.</p>
-      </a>
-
-      <a class="paper-card" href="https://opportunityatlas.org" target="_blank" rel="noopener">
-        <div class="paper-thread">Neighborhoods &amp; Mobility</div>
-        <div class="paper-title">The Opportunity Atlas</div>
-        <div class="paper-authors">Chetty, Friedman, Hendren et al. · NBER 2018</div>
-        <p class="paper-hook">Using tax records covering nearly all Americans, this project maps intergenerational mobility at the neighborhood level. Where you grow up matters enormously for where you end up — and the variation is hyper-local. Click the link and look up where you're from.</p>
-      </a>
-
-      <a class="paper-card" href="https://www.nber.org/papers/w9523" target="_blank" rel="noopener">
-        <div class="paper-thread">Environment &amp; Health</div>
-        <div class="paper-title">Does Air Quality Matter? Evidence from the Housing Market</div>
-        <div class="paper-authors">Chay &amp; Greenstone · JPE 2005</div>
-        <p class="paper-hook">The Clean Air Act forced some counties to reduce pollution and left others unchanged. A natural experiment. Counties with cleaner air saw property values rise. The hedonic framework reveals what people actually pay for clean air — and the answer is large.</p>
-      </a>
-
-      <a class="paper-card" href="https://www.jtlu.org/index.php/jtlu/article/view/1096" target="_blank" rel="noopener">
-        <div class="paper-thread">Transportation</div>
-        <div class="paper-title">Effect of Light Rail Transit on Nearby Property Values: Evidence from Seattle</div>
-        <div class="paper-authors">Dubé et al. · JTLU 2018</div>
-        <p class="paper-hook">A clean DiD design around Seattle's new light rail. The answer wasn't what transit advocates expected: effects varied dramatically by station and were negative in some neighborhoods. Context, not just infrastructure, determines outcomes — a lesson that runs through the whole course.</p>
-      </a>
-
-    </div>
-    <p class="fine-note">Links go to freely accessible versions. Carleton library provides access to paywalled journals for all assigned readings.</p>
   </section>
 
   <!-- JOURNALS -->
@@ -682,7 +659,7 @@
   </section>
 
   <!-- COMPS -->
-  <section>
+  <section id="comps">
     <div class="label">Comps Connection</div>
     <h2>This seminar is your launchpad</h2>
     <p>The research prospectus you develop here is the formal gateway to senior Comps. Two paths are available — and this seminar prepares you for both.</p>
