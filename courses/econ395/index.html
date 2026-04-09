@@ -332,6 +332,110 @@
     margin-top: 0.6rem;
   }
 
+  /* ── WHITE PAPER TOPICS ───────────────────────── */
+  .wp-header {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+  .wp-header-label {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .wp-header h3 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+  }
+  .wp-header p {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    margin: 0;
+  }
+  .wp-topic {
+    padding: 2rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .wp-topic:last-child { padding-bottom: 0; }
+  .wp-topic-thread {
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .wp-topic-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+  .wp-topic-question {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.65;
+  }
+  .wp-topic-body {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+  .wp-lit-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 0.5rem;
+  }
+  .wp-lit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+  }
+  .wp-lit-list li {
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    padding: 0.35rem 0;
+    border-bottom: 1px solid var(--bg-warm);
+    line-height: 1.55;
+  }
+  .wp-lit-list li:last-child { border-bottom: none; }
+  .wp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    padding: 0.55rem 1rem;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .wp-link::after { content: '↗'; }
+  .wp-link:hover {
+    background: var(--bg-warm);
+    border-color: var(--teal);
+    color: var(--navy);
+  }
+
   /* ── DISCLAIMER ──────────────────────────────── */
   .disclaimer {
     border-top: 1px solid var(--rule);
@@ -586,6 +690,8 @@
     <h2>This seminar is your launchpad</h2>
     <p>The research prospectus you develop here is the formal gateway to senior Comps. Two paths are available — and this seminar prepares you for both.</p>
 
+    <p>This seminar takes presenting and defending research seriously — not as a performance requirement, but as a skill that develops with practice. You will have multiple opportunities to explain research designs out loud across the term, starting early and at low stakes. Early presentations focus on formative feedback and format familiarity, serving as practice before later presentations that expect more polish and depth of expertise in your area of study. By the time you are presenting work you have spent weeks developing, the format itself should feel familiar rather than daunting.</p>
+
     <div class="comps-box">
       <div class="comps-intro">
         <p>The prospectus is due at the end of Week 7. By Week 9 you will know whether it has been approved, and — if approved — you may choose either Comps path. If you are undecided between research and policy careers, this seminar does not force the choice prematurely.</p>
@@ -600,6 +706,45 @@
         <p>Modeled on think tank and government reports. A rigorous, evidence-based argument for a specific policy position — typically 15–20 pages. The natural path for students headed toward policy, advocacy, or public service.</p>
       </div>
     </div>
+
+    <div class="wp-header">
+      <div class="wp-header-label">White Paper Topics · Fall 2026</div>
+      <h3>Available topics for the Policy White Paper path</h3>
+      <p>Students choosing the Policy White Paper path select one of the following topics. Each is chosen because the economics is genuinely interesting, the stakes are real, and the evidence base is substantial enough to support a rigorous argument.</p>
+    </div>
+
+    <div class="wp-topic">
+      <div class="wp-topic-thread">Housing &amp; Opportunity</div>
+      <div class="wp-topic-title">Housing Mobility and Opportunity</div>
+      <p class="wp-topic-question">Should the federal government expand housing mobility programs to expand opportunity for low-income families?</p>
+      <p class="wp-topic-body">Where you grow up shapes your life outcomes in ways that are now well-documented by economists. Children who grow up in high-opportunity neighborhoods earn more, are less likely to be incarcerated, and are more likely to attend college than observationally similar children who grow up in low-opportunity neighborhoods — and these effects are causal, not just correlational. Yet access to high-opportunity neighborhoods is increasingly limited by housing costs, discrimination, and the design of housing assistance programs.</p>
+      <p class="wp-topic-body">A strong paper will engage seriously with the evidence on neighborhood effects and the Moving to Opportunity experiment, the implementation challenges that have limited the effectiveness of existing voucher programs (landlord discrimination, search costs, information gaps), the tension between mobility-based and place-based approaches to addressing concentrated poverty, and the political economy of housing policy at the federal and local level. The goal is a policy argument that takes the empirical evidence seriously while being honest about what it does and does not establish.</p>
+      <div class="wp-lit-label">Key Literature</div>
+      <ul class="wp-lit-list">
+        <li>Chetty, R., Hendren, N., &amp; Katz, L. (2016). The effects of exposure to better neighborhoods on children. <em>American Economic Review</em>, 106(4), 855–902.</li>
+        <li>Chetty, R., &amp; Hendren, N. (2018). The impacts of neighborhoods on intergenerational mobility. <em>Quarterly Journal of Economics</em>, 133(3), 1107–1162.</li>
+        <li>Chetty, R., Friedman, J., Hendren, N., Jones, M., &amp; Porter, S. (2018). The Opportunity Atlas. <em>NBER Working Paper 25147</em>.</li>
+        <li>Chetty, R., et al. (2022). Social capital and economic mobility. <em>Nature</em>, 608.</li>
+      </ul>
+      <a class="wp-link" href="https://opportunityatlas.org" target="_blank" rel="noopener">Explore the Opportunity Atlas</a>
+    </div>
+
+    <div class="wp-topic">
+      <div class="wp-topic-thread">Local Governance &amp; Technology</div>
+      <div class="wp-topic-title">Data Centers and Local Communities</div>
+      <p class="wp-topic-question">What should cities ask for when a data center comes to town?</p>
+      <p class="wp-topic-body">Data centers are arriving in communities across the United States at an unprecedented pace, bringing promises of tax revenue and jobs alongside concerns about noise, water use, electricity costs, and land use. Cities and counties are being asked to make rapid decisions — approving zoning variances, negotiating tax abatements, establishing community benefit agreements, and setting utility rate structures — often with limited information and under significant pressure from developers and state economic development officials.</p>
+      <p class="wp-topic-body">A strong paper will engage seriously with the economics of bargaining between local governments and mobile capital, the fiscal incidence of tax incentives (who actually bears the cost of a property tax abatement?), the externalities that communities have legitimate claims to mitigate, and the political economy of why cities often end up with less than they could have negotiated. You should draw on real examples from the seminar's site portfolio and produce a policy argument that a city council member or economic development director could actually use.</p>
+      <div class="wp-lit-label">Key Literature</div>
+      <ul class="wp-lit-list">
+        <li>Slattery, C. &amp; Zidar, O. (2020). Evaluating state and local business tax incentives. <em>Journal of Economic Perspectives</em>, 34(2), 90–118.</li>
+        <li>Greenstone, M. &amp; Moretti, E. (2003). Bidding for industrial plants. <em>NBER Working Paper 9844</em>.</li>
+        <li>Gross, J. (2005). Community benefit agreements: Making development projects accountable. <em>Partnership for Working Families</em>.</li>
+        <li>Zodrow, G. &amp; Mieszkowski, P. (1986). Pigou, Tiebout, property taxation, and the underprovision of local public goods. <em>Journal of Urban Economics</em>, 19(3), 356–370.</li>
+      </ul>
+      <a class="wp-link" href="https://www.urban.org/apps/pursuing-housing-justice-interventions-impact/community-benefit-agreements" target="_blank" rel="noopener">What are community benefit agreements?</a>
+    </div>
+
   </section>
 
   <!-- DISCLAIMER -->
