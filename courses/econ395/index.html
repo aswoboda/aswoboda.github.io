@@ -469,6 +469,116 @@
     .comps-intro   { grid-column: 1; }
     .tool-row      { grid-template-columns: 1fr; }
   }
+
+  /* ── RESEARCH NAVIGATOR WIDGET ───────────────── */
+  /* All rules scoped to .nav-widget to prevent conflicts with existing page styles */
+  .nav-widget { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif; color: #1a1a1a; line-height: 1.6; }
+  .nav-widget a { color: inherit; }
+
+  .nav-widget .breadcrumb {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.8rem; color: #999;
+    margin-bottom: 1.75rem; min-height: 1.2rem;
+  }
+  .nav-widget .breadcrumb button {
+    background: none; border: none; cursor: pointer;
+    color: #555; padding: 0; font-size: 0.8rem; font-family: inherit;
+  }
+  .nav-widget .breadcrumb button:hover { text-decoration: underline; }
+  .nav-widget .breadcrumb .sep { color: #ccc; }
+  .nav-widget .breadcrumb .current { color: #999; }
+
+  .nav-widget .level-label {
+    font-size: 0.7rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: #bbb; margin-bottom: 1rem; min-height: 1rem;
+  }
+
+  .nav-widget .cluster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+  }
+  .nav-widget .cluster-card {
+    background: white;
+    border: 1px solid #e8e8e5;
+    border-left: 3px solid var(--c);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    cursor: pointer;
+    transition: box-shadow 0.12s;
+  }
+  .nav-widget .cluster-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+  .nav-widget .cluster-card:focus { outline: 2px solid var(--c); outline-offset: 2px; }
+  .nav-widget .ctag {
+    display: inline-block; font-size: 0.67rem; font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 10px; margin-bottom: 0.45rem;
+  }
+  .nav-widget .ctag.classic  { background: #f3f3f1; color: #999; }
+  .nav-widget .ctag.emerging { background: #fef8ee; color: #a86800; }
+  .nav-widget .cluster-card h3 { font-size: 0.92rem; font-weight: 500; margin-bottom: 0.3rem; line-height: 1.4; margin-top: 0; }
+  .nav-widget .cluster-card p  { font-size: 0.78rem; color: #666; line-height: 1.5; margin: 0; }
+
+  .nav-widget .q-list { display: flex; flex-direction: column; gap: 9px; }
+  .nav-widget .q-card {
+    background: white; border: 1px solid #e8e8e5; border-radius: 8px;
+    padding: 1rem 1.25rem; cursor: pointer;
+    display: flex; align-items: flex-start; gap: 12px;
+    transition: box-shadow 0.12s;
+  }
+  .nav-widget .q-card:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+  .nav-widget .q-card:focus { outline: 2px solid #aaa; outline-offset: 2px; }
+  .nav-widget .q-num    { font-size: 0.8rem; color: #ccc; font-weight: 500; flex-shrink: 0; padding-top: 3px; min-width: 20px; }
+  .nav-widget .q-body   { flex: 1; }
+  .nav-widget .q-text   { font-size: 0.93rem; line-height: 1.5; margin-bottom: 0.3rem; font-style: normal; font-family: inherit; color: #1a1a1a; }
+  .nav-widget .q-method { font-size: 0.76rem; color: #999; font-style: italic; }
+  .nav-widget .q-arrow  { color: #ddd; align-self: center; font-size: 1rem; flex-shrink: 0; }
+
+  .nav-widget .q-framing {
+    background: #f7f7f5; border-left: 3px solid #e0e0dc;
+    border-radius: 0 6px 6px 0; padding: 0.75rem 1rem;
+    margin-bottom: 1.25rem; font-size: 0.87rem; color: #444; line-height: 1.6;
+  }
+  .nav-widget .q-framing strong {
+    display: block; font-size: 0.72rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 0.3rem; color: #aaa;
+  }
+
+  .nav-widget .paper-list { display: flex; flex-direction: column; gap: 10px; }
+  .nav-widget .paper-card {
+    background: white; border: 1px solid #e8e8e5;
+    border-radius: 8px; padding: 1rem 1.25rem;
+    display: block; text-decoration: none; position: static;
+  }
+  .nav-widget .paper-card::after { content: none; }
+  .nav-widget .paper-meta       { font-size: 0.77rem; color: #999; margin-bottom: 0.15rem; }
+  .nav-widget .paper-title      { font-size: 0.93rem; font-weight: 500; line-height: 1.4; margin-bottom: 0.15rem; font-family: inherit; color: #1a1a1a; }
+  .nav-widget .paper-title a    { text-decoration: none; color: #1a1a1a; }
+  .nav-widget .paper-title a:hover { color: #2563eb; text-decoration: underline; }
+  .nav-widget .paper-venue      { font-size: 0.77rem; color: #bbb; font-style: italic; margin-bottom: 0.55rem; }
+  .nav-widget .paper-annotation { font-size: 0.83rem; color: #444; line-height: 1.58; margin-bottom: 0.6rem; }
+  .nav-widget .badges { display: flex; gap: 5px; flex-wrap: wrap; }
+  .nav-widget .badge {
+    display: inline-block; font-size: 0.66rem; font-weight: 600;
+    letter-spacing: 0.03em; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 10px;
+  }
+  .nav-widget .badge.famous     { background: #eff6ff; color: #1d4ed8; }
+  .nav-widget .badge.accessible { background: #f0fdf4; color: #15803d; }
+  .nav-widget .badge.emerging   { background: #fef9ee; color: #b45309; }
+  .nav-widget .badge.analog     { background: #fdf4ff; color: #7e22ce; }
+
+  .nav-widget .footer-note {
+    margin-top: 2.5rem; padding-top: 1.25rem;
+    border-top: 1px solid #ebebea;
+    font-size: 0.75rem; color: #bbb; line-height: 1.6;
+  }
+
+  @media (max-width: 560px) {
+    .nav-widget .cluster-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -555,6 +665,513 @@
     </div>
     <p class="fine-note">These are illustrative questions, not a fixed syllabus. Part of this seminar is learning to formulate your own.</p>
     <p class="fine-note">Links go to freely accessible versions. Carleton library provides access to paywalled journals for all assigned readings.</p>
+  </section>
+
+  <!-- RESEARCH NAVIGATOR -->
+  <section>
+    <p class="q-intro">The six papers above are illustrative — browse below for a broader sense of the questions urban economists study.</p>
+    <div class="nav-widget">
+      <nav class="breadcrumb" id="nav-breadcrumb" aria-label="Navigation"></nav>
+      <div class="level-label" id="nav-level-label"></div>
+      <div id="nav-app"></div>
+      <div class="footer-note" id="nav-footer-note"></div>
+    </div>
+    <script>
+    (function () {
+      const clusters = [
+        {
+          id: 'housing', color: '#2563eb', tag: 'classic',
+          name: 'Housing markets &amp; affordability',
+          desc: 'How do prices form, who gets priced out, and what drives the supply side?',
+          questions: [
+            {
+              text: 'Does restricting short-term rentals (e.g., Airbnb) meaningfully reduce long-term rents for local residents?',
+              method: 'diff-in-diff around city-level regulatory bans',
+              papers: [
+                { authors: 'Barron, K., Kung, E., &amp; Proserpio, D.', year: 2021,
+                  title: 'The effect of home-sharing on house prices and rents: Evidence from Airbnb',
+                  venue: 'Marketing Science, 40(1), 23–47',
+                  annotation: 'Uses a national panel to estimate that a 10-percentage-point increase in Airbnb market penetration raises rents roughly 0.4% and house prices ~0.76%. Causal identification relies on variation in Airbnb adoption across markets over time.',
+                  badges: ['famous'], url: 'https://doi.org/10.1287/mksc.2020.1227' },
+                { authors: 'Horn, K., &amp; Merante, M.', year: 2017,
+                  title: 'Is home sharing driving up rents? Evidence from Airbnb in Boston',
+                  venue: 'Journal of Housing Economics, 38, 14–24',
+                  annotation: 'An accessible, city-level study of Boston that finds increases in Airbnb listings within a census tract are associated with higher asking rents. A useful companion to the national study because it pins down local mechanisms and is easier to read.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Horn+Merante+2017+Airbnb+Boston+housing+rents' }
+              ]
+            },
+            {
+              text: 'How much of the urban–suburban house price gap reflects school quality versus commute time versus neighborhood amenities?',
+              method: 'hedonic regression; attendance boundary discontinuity design',
+              papers: [
+                { authors: 'Black, S. E.', year: 1999,
+                  title: 'Do better schools matter? Parental valuation of elementary education',
+                  venue: 'Quarterly Journal of Economics, 114(2), 577–599',
+                  annotation: 'The founding paper of the boundary discontinuity approach: compare house prices on either side of elementary school attendance boundaries to isolate willingness-to-pay for school quality. A 5% test score increase raises prices roughly 2.5%. Essential reading.',
+                  badges: ['famous'], url: 'https://doi.org/10.1162/003355399556061' },
+                { authors: 'Bayer, P., Ferreira, F., &amp; McMillan, R.', year: 2007,
+                  title: 'A unified framework for measuring preferences for schools and neighborhoods',
+                  venue: 'Journal of Political Economy, 115(4), 588–638',
+                  annotation: 'Extends the boundary discontinuity approach with a full household sorting model that separates preferences for schools, neighbors, and access. More technically demanding but shows how the pieces fit together — a good follow-up read once Black (1999) is absorbed.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Bayer+Ferreira+McMillan+2007+schools+neighborhoods+preferences+JPE' }
+              ]
+            },
+            {
+              text: 'When a new market-rate apartment building opens in a low-income neighborhood, do nearby rents rise (displacement) or fall (filtering)?',
+              method: 'event study using building permit data and local rent indices',
+              papers: [
+                { authors: 'Asquith, B. J., Mast, E., &amp; Reed, D.', year: 2023,
+                  title: 'Local effects of large new apartment buildings in low-income areas',
+                  venue: 'Review of Economics and Statistics, 105(2), 359–375',
+                  annotation: 'Probably the most influential recent paper on the supply-and-displacement question. Finds that large new apartment buildings actually reduce rents within 500 meters in low-income neighborhoods — consistent with filtering, not displacement. Clean identification using tract-level rent data.',
+                  badges: ['famous'], url: 'https://doi.org/10.1162/rest_a_01055' },
+                { authors: 'Pennington, K.', year: 2021,
+                  title: 'Does building new housing cause displacement? The supply and demand effects of construction in San Francisco',
+                  venue: 'Working paper',
+                  annotation: 'Examines San Francisco, where displacement fears are highest. Finds that new market-rate construction reduces nearby displacement pressures. A useful pairing with Asquith et al. because it uses a different city and a different identification strategy.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Pennington+2021+building+housing+displacement+San+Francisco' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'zoning', color: '#d97706', tag: 'classic',
+          name: 'Zoning, land use &amp; local regulation',
+          desc: 'How do rules about land use shape housing supply, business activity, and city form?',
+          questions: [
+            {
+              text: 'Do minimum parking requirements reduce housing density and raise development costs in urban neighborhoods?',
+              method: 'cross-city comparison exploiting regulatory reforms; quasi-experimental',
+              papers: [
+                { authors: 'Shoup, D. C.', year: 2005,
+                  title: 'The High Cost of Free Parking',
+                  venue: 'American Planning Association (book)',
+                  annotation: 'The canonical treatment of parking minimums. Argues that off-street parking requirements function as a hidden subsidy to driving, inflate development costs, and reduce housing supply. Enormously influential in policy circles and readable as a primary text for non-specialists.',
+                  badges: ['famous', 'accessible'], url: 'https://scholar.google.com/scholar?q=Shoup+2005+High+Cost+Free+Parking' },
+                { authors: 'Manville, M.', year: 2013,
+                  title: 'Parking requirements and housing development: Regulation and reform in Los Angeles',
+                  venue: 'Journal of the American Planning Association, 79(1), 49–66',
+                  annotation: 'An empirical follow-up to Shoup using a 2005 Los Angeles reform that relaxed parking minimums in part of downtown. Finds the reform substantially increased housing production — a clean quasi-experimental test of the mechanism.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Manville+2013+parking+requirements+housing+Los+Angeles+JAPA' }
+              ]
+            },
+            {
+              text: 'When a city upzones a neighborhood, how much new construction follows — and are the welfare costs of supply constraints large in aggregate?',
+              method: 'regression discontinuity at zoning boundaries; general equilibrium simulation',
+              papers: [
+                { authors: 'Hsieh, C.-T., &amp; Moretti, E.', year: 2019,
+                  title: 'Housing constraints and spatial misallocation',
+                  venue: 'American Economic Journal: Macroeconomics, 11(2), 1–39',
+                  annotation: 'One of the most cited papers in contemporary urban economics. Uses a general equilibrium model to estimate that housing supply constraints in high-productivity cities (New York, San Francisco) reduce aggregate US GDP by roughly 2%. Makes the welfare cost of local zoning vivid at the national scale.',
+                  badges: ['famous'], url: 'https://doi.org/10.1257/mac.20170388' },
+                { authors: 'Glaeser, E., Gyourko, J., &amp; Saks, R.', year: 2005,
+                  title: 'Why is Manhattan so expensive? Regulation and the rise in housing prices',
+                  venue: 'Journal of Law and Economics, 48(2), 331–369',
+                  annotation: 'Estimates the "regulatory tax" on new housing in Manhattan by comparing construction costs to market prices. Finds a large and growing wedge attributable to zoning rather than land scarcity. Accessible methodology and an influential framing of housing costs as a policy-created problem.',
+                  badges: ['famous', 'accessible'], url: 'https://doi.org/10.1086/429979' }
+              ]
+            },
+            {
+              text: 'Do exclusionary zoning practices in suburbs increase residential segregation by income and race, and where did these practices come from?',
+              method: 'cross-metropolitan analysis; historical and institutional analysis',
+              papers: [
+                { authors: 'Rothstein, R.', year: 2017,
+                  title: 'The Color of Law: A Forgotten History of How Our Government Segregated America',
+                  venue: 'Liveright (book)',
+                  annotation: 'A highly accessible history of how local zoning, federal housing policy, and deed restrictions were explicitly designed to produce racial residential segregation. Essential context for understanding why the spatial distribution of income and race looks the way it does — and why it is not simply a market outcome.',
+                  badges: ['famous', 'accessible'], url: 'https://scholar.google.com/scholar?q=Rothstein+2017+Color+of+Law' },
+                { authors: 'Lens, M. C., &amp; Monkkonen, P.', year: 2016,
+                  title: 'Do strict land use regulations make metropolitan areas more segregated by income?',
+                  venue: 'Journal of the American Planning Association, 82(1), 6–21',
+                  annotation: 'A cross-metropolitan empirical test of the segregation-zoning link. Finds that stricter land use regulations are associated with greater income segregation, with effects operating through both housing prices and locational sorting. A readable complement to Rothstein that brings quantitative evidence.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Lens+Monkkonen+2016+land+use+regulations+segregation+income' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'agglomeration', color: '#059669', tag: 'classic',
+          name: 'Agglomeration &amp; labor markets',
+          desc: 'Why do workers and firms cluster in cities, and who captures the productivity gains?',
+          questions: [
+            {
+              text: 'Does moving to a denser city permanently raise a worker\'s wages, or does the wage premium reflect sorting of more skilled workers into cities?',
+              method: 'worker fixed effects panel tracking movers across cities',
+              papers: [
+                { authors: 'Glaeser, E. L., &amp; Maré, D. C.', year: 2001,
+                  title: 'Cities and skills',
+                  venue: 'Journal of Labor Economics, 19(2), 316–342',
+                  annotation: 'The foundational paper on the urban wage premium. Uses panel data to show that workers in large cities earn more even after controlling for skill, and that wages rise slowly after moving to a city — suggesting a learning effect, not just sorting of talented workers into cities.',
+                  badges: ['famous'], url: 'https://doi.org/10.1086/209979' },
+                { authors: 'De la Roca, J., &amp; Puga, D.', year: 2017,
+                  title: 'Learning by working in big cities',
+                  venue: 'Review of Economic Studies, 84(1), 106–142',
+                  annotation: 'Using Spanish administrative data, carefully distinguishes learning effects (permanent skill gains from working in dense cities) from static sorting. Workers in large cities accumulate more valuable experience — and they take a portion of this premium with them if they leave.',
+                  badges: ['famous'], url: 'https://doi.org/10.1093/restud/rdw031' }
+              ]
+            },
+            {
+              text: 'When a large manufacturing plant opens in a county, how much do wages and productivity at nearby incumbent firms change?',
+              method: 'comparison of "winning" versus runner-up counties in competitive plant location decisions',
+              papers: [
+                { authors: 'Greenstone, M., Hornbeck, R., &amp; Moretti, E.', year: 2010,
+                  title: 'Identifying agglomeration spillovers: Evidence from winners and losers of large plant openings',
+                  venue: 'Journal of Political Economy, 118(3), 536–598',
+                  annotation: 'The "Million Dollar Plants" paper. Uses a clever design — comparing counties that won large plant location competitions against runner-up counties — to isolate agglomeration spillovers. Finds that incumbent plants in winning counties experience roughly 12% higher TFP growth. Methodologically elegant.',
+                  badges: ['famous'], url: 'https://doi.org/10.1086/653714' },
+                { authors: 'Moretti, E.', year: 2004,
+                  title: 'Workers\' education, spillovers, and productivity: Evidence from plant-level production functions',
+                  venue: 'American Economic Review, 94(3), 656–690',
+                  annotation: 'Examines how the share of college-educated workers in a city affects the wages of less-educated workers in the same city. Finds evidence of human capital externalities — a second channel by which agglomeration benefits are transmitted. A useful companion paper showing spillovers operate through people, not just firm co-location.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Moretti+2004+workers+education+spillovers+productivity+AER' }
+              ]
+            },
+            {
+              text: 'Are agglomeration benefits stronger for some types of workers and occupations than others, and what accounts for the variation?',
+              method: 'occupation-level regressions of wage premiums against city density',
+              papers: [
+                { authors: 'Bacolod, M., Blum, B. S., &amp; Strange, W. C.', year: 2009,
+                  title: 'Skills in the city',
+                  venue: 'Journal of Urban Economics, 65(2), 136–153',
+                  annotation: 'Shows that the urban wage premium is concentrated among workers with cognitive and social ("people") skills rather than physical or motor skills. Provides a skill-based theory of why dense cities generate larger returns for knowledge workers than for tradespeople.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Bacolod+Blum+Strange+2009+skills+city+JUE' },
+                { authors: 'Autor, D. H.', year: 2019,
+                  title: 'Work of the past, work of the future',
+                  venue: 'AEA Papers and Proceedings, 109, 1–32',
+                  annotation: 'An accessible and beautifully written summary of how labor market polarization has played out differently across cities. High-skill cities pull further ahead; left-behind cities lose middle-skill work without gaining high-skill replacements. Excellent as a discussion piece at the start of a seminar.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Autor+2019+Work+past+work+future+AEA+Papers+Proceedings' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'pubfin', color: '#7c3aed', tag: 'classic',
+          name: 'Local public finance &amp; taxation',
+          desc: 'How do local governments raise revenue, and how do taxes and spending shape where people and firms locate?',
+          questions: [
+            {
+              text: 'Do increases in school spending get capitalized into home prices, and do they actually improve long-run student outcomes?',
+              method: 'regression discontinuity around school bond election thresholds; school finance reform variation',
+              papers: [
+                { authors: 'Cellini, S. R., Ferreira, F., &amp; Rothstein, J.', year: 2010,
+                  title: 'The value of school facility investments: Evidence from a dynamic regression discontinuity design',
+                  venue: 'Quarterly Journal of Economics, 125(1), 215–261',
+                  annotation: 'Uses close school bond elections as a natural experiment. Finds that passing a bond measure raises local property values by roughly $1.50 for every dollar spent — implying households value school improvements more than the tax cost. A clean demonstration of the capitalization principle.',
+                  badges: ['famous'], url: 'https://doi.org/10.1162/qjec.2010.125.1.215' },
+                { authors: 'Jackson, C. K., Johnson, R. C., &amp; Persico, C.', year: 2016,
+                  title: 'The effects of school spending on educational and economic outcomes: Evidence from school finance reforms',
+                  venue: 'Quarterly Journal of Economics, 131(1), 157–218',
+                  annotation: 'Exploits state-level school finance reforms to trace out long-run effects of school spending. A 10% increase in per-pupil spending throughout school is associated with significantly higher adult earnings and lower poverty rates — one of the cleanest answers to "does money matter in education?"',
+                  badges: ['famous'], url: 'https://doi.org/10.1093/qje/qjv036' }
+              ]
+            },
+            {
+              text: 'When a state raises business taxes, do firms actually relocate — and who ultimately bears the burden, owners or workers?',
+              method: 'staggered state tax reform exploiting variation in tax changes across states and years',
+              papers: [
+                { authors: 'Giroud, X., &amp; Rauh, J.', year: 2019,
+                  title: 'State taxation and the reallocation of business activity: Evidence from establishment-level data',
+                  venue: 'Journal of Political Economy, 127(3), 1262–1316',
+                  annotation: 'Uses detailed establishment-level data to show that multi-state firms shift employment to lower-tax states after a tax increase. Single-state firms do not — they cannot avoid the tax through reallocation. A careful study of fiscal federalism and the real effects of tax competition.',
+                  badges: ['famous'], url: 'https://doi.org/10.1086/701357' },
+                { authors: 'Suárez Serrato, J. C., &amp; Zidar, O.', year: 2016,
+                  title: 'Who benefits from state corporate tax cuts? A local labor markets approach with heterogeneous firms',
+                  venue: 'American Economic Review, 106(9), 2582–2624',
+                  annotation: 'Asks who captures the gains from state corporate tax cuts: owners, workers, or landowners? Finds that workers and landowners capture most of the benefit, with the split depending on local labor supply elasticity. Excellent for motivating incidence analysis in public finance.',
+                  badges: ['famous'], url: 'https://scholar.google.com/scholar?q=Suarez+Serrato+Zidar+2016+state+corporate+tax+cuts+AER' }
+              ]
+            },
+            {
+              text: 'Do Tax Increment Financing (TIF) districts generate new economic development, or do they mainly redirect tax revenue away from schools and general services?',
+              method: 'comparison of TIF and non-TIF areas within cities; synthetic control',
+              papers: [
+                { authors: 'Dye, R. F., &amp; Merriman, D. F.', year: 2000,
+                  title: 'The effects of tax increment financing on economic development',
+                  venue: 'Journal of Urban Economics, 47(2), 306–328',
+                  annotation: 'A foundational skeptical study. Finds that while TIF districts grow faster than non-TIF areas, municipalities that create TIFs grow more slowly overall — suggesting that TIFs redirect growth rather than create it. The benchmark paper in the TIF debate.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Dye+Merriman+2000+tax+increment+financing+economic+development+JUE' },
+                { authors: 'Briffault, R.', year: 2010,
+                  title: 'The most popular tool: Tax increment financing and the political economy of local government',
+                  venue: 'University of Chicago Law Review, 77(1), 65–95',
+                  annotation: 'A legal scholar\'s treatment of why TIFs are politically irresistible despite mixed economic evidence. Accessible and useful for understanding why local governments adopt tools that may not maximize aggregate welfare — effectively a public choice analysis of local fiscal institutions.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Briffault+2010+tax+increment+financing+political+economy+local+government' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'neighborhoods', color: '#dc2626', tag: 'classic',
+          name: 'Neighborhood effects &amp; mobility',
+          desc: 'Does where you grow up shape your long-run outcomes, and can policy change the trajectory?',
+          questions: [
+            {
+              text: 'Does growing up in a high-poverty neighborhood reduce adult earnings — and does it matter more the longer and younger a child is exposed?',
+              method: 'quasi-experimental design using housing lotteries; long-run administrative earnings records',
+              papers: [
+                { authors: 'Chetty, R., &amp; Hendren, N.', year: 2018,
+                  title: 'The impacts of neighborhoods on intergenerational mobility I: Childhood exposure effects',
+                  venue: 'Quarterly Journal of Economics, 133(3), 1107–1162',
+                  annotation: 'Uses movers across counties to show that every additional year of exposure to a better neighborhood raises a child\'s future earnings, with larger effects for moves at younger ages. One of the most influential empirical papers in recent economics — and the foundation for Opportunity Insights.',
+                  badges: ['famous'], url: 'https://doi.org/10.1093/qje/qjy007' },
+                { authors: 'Chetty, R., Hendren, N., &amp; Katz, L. F.', year: 2016,
+                  title: 'The effects of exposure to better neighborhoods on children: New evidence from the Moving to Opportunity experiment',
+                  venue: 'American Economic Review, 106(4), 855–902',
+                  annotation: 'Revisits the Moving to Opportunity housing voucher experiment with long-run administrative data. Children who moved to lower-poverty areas before age 13 had substantially higher adult incomes and college attendance rates — but adults who moved themselves saw few labor market benefits.',
+                  badges: ['famous'], url: 'https://doi.org/10.1257/aer.20150572' }
+              ]
+            },
+            {
+              text: 'When a neighborhood gentrifies rapidly, do long-term low-income residents get displaced, or do many stay and benefit from neighborhood improvement?',
+              method: 'longitudinal address tracking; comparison to non-gentrifying neighborhoods',
+              papers: [
+                { authors: 'Freeman, L.', year: 2005,
+                  title: 'Displacement or succession? Residential mobility in gentrifying neighborhoods',
+                  venue: 'Urban Affairs Review, 40(4), 463–491',
+                  annotation: 'A widely cited and perhaps surprising finding: low-income residents in gentrifying neighborhoods are not significantly more likely to move than those in non-gentrifying neighborhoods. Challenges the narrative of mass displacement, though later work has complicated the picture considerably.',
+                  badges: ['famous', 'accessible'], url: 'https://scholar.google.com/scholar?q=Freeman+2005+displacement+succession+gentrifying+neighborhoods' },
+                { authors: 'Brummet, Q., &amp; Reed, D.', year: 2019,
+                  title: 'The effects of gentrification on the well-being and opportunity of original resident adults and children',
+                  venue: 'Federal Reserve Bank of Philadelphia Working Paper 19-30',
+                  annotation: 'Uses individual longitudinal data to revisit Freeman\'s finding with better methods. Finds modest displacement effects but also income gains for original residents who stay — suggesting gentrification has heterogeneous effects that depend heavily on housing tenure and local labor market conditions.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Brummet+Reed+2019+gentrification+well-being+opportunity' }
+              ]
+            },
+            {
+              text: 'Do food deserts causally reduce diet quality among low-income households, or do they mainly reflect pre-existing income and preference differences?',
+              method: 'grocery store entry/exit as natural experiments; consumer panel scanner data',
+              papers: [
+                { authors: 'Allcott, H., Diamond, R., Dubé, J.-P., Handbury, J., Rahkovsky, I., &amp; Schnell, M.', year: 2019,
+                  title: 'Food deserts and the causes of nutritional inequality',
+                  venue: 'Quarterly Journal of Economics, 134(4), 1793–1844',
+                  annotation: 'Uses detailed consumer scanner data to decompose nutritional inequality. Finds that if low-income households had access to the same stores as high-income households, only about 9% of the nutritional gap would close — preferences and incomes drive most of the difference. Challenges a prominent policy assumption.',
+                  badges: ['famous'], url: 'https://doi.org/10.1093/qje/qjz015' },
+                { authors: 'Handbury, J., Rahkovsky, I., &amp; Schnell, M.', year: 2015,
+                  title: 'Is the focus on food deserts fruitless? Retail access and food purchases across the socioeconomic spectrum',
+                  venue: 'NBER Working Paper No. 21126',
+                  annotation: 'The methodological precursor to the Allcott et al. paper. Uses store-level entry and exit to estimate the causal effect of retail access on food purchases. A readable working paper that previews the larger study and is useful as a standalone introduction to the question.',
+                  badges: ['accessible'], url: 'https://www.nber.org/papers/w21126' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'transport', color: '#0891b2', tag: 'classic',
+          name: 'Transportation &amp; infrastructure',
+          desc: 'How does physical connectivity shape land values, commuting behavior, and the location of economic activity?',
+          questions: [
+            {
+              text: 'When a new light rail line opens, how much do nearby property values rise, and how quickly does the effect materialize?',
+              method: 'difference-in-differences comparing treatment and control properties around station openings',
+              papers: [
+                { authors: 'Baum-Snow, N., &amp; Kahn, M. E.', year: 2000,
+                  title: 'The effects of new public projects to expand urban rail transit',
+                  venue: 'Journal of Public Economics, 77(2), 241–263',
+                  annotation: 'The foundational study of transit infrastructure capitalization. Examines rail expansions across US cities and finds positive effects on property values near stations and increased nearby residential construction. A clean study of how transportation investments reshape urban land markets.',
+                  badges: ['famous'], url: 'https://scholar.google.com/scholar?q=Baum-Snow+Kahn+2000+public+projects+rail+transit+JPubE' },
+                { authors: 'Billings, S. B.', year: 2011,
+                  title: 'Estimating the value of a new transit option',
+                  venue: 'Regional Science and Urban Economics, 41(6), 525–536',
+                  annotation: 'Uses the opening of Charlotte\'s light rail system as a natural experiment. Finds large positive effects on residential property values within a quarter mile of stations, with effects diminishing sharply with distance. Well-identified, accessible, and frequently assigned in urban economics courses.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Billings+2011+value+new+transit+option+Charlotte+RSUE' }
+              ]
+            },
+            {
+              text: 'When cities add highway capacity to relieve congestion, does traffic expand to fill the new capacity — and did highways cause suburbanization?',
+              method: 'instrumental variable using historical and planned highway network designs',
+              papers: [
+                { authors: 'Duranton, G., &amp; Turner, M. A.', year: 2011,
+                  title: 'The fundamental law of road congestion: Evidence from US cities',
+                  venue: 'American Economic Review, 101(6), 2616–2652',
+                  annotation: 'Finds that a 10% increase in lane miles generates roughly a 10% increase in vehicle miles traveled — implying that highway construction does not reduce traffic because induced demand fills new capacity. One of the most influential papers in transportation economics. The title captures the finding perfectly.',
+                  badges: ['famous'], url: 'https://doi.org/10.1257/aer.101.6.2616' },
+                { authors: 'Baum-Snow, N.', year: 2007,
+                  title: 'Did highways cause suburbanization?',
+                  venue: 'Quarterly Journal of Economics, 122(2), 775–805',
+                  annotation: 'Uses the 1947 interstate highway plan as an instrument for actual construction. Finds that each new highway ray through a central city reduced its population by roughly 18%. Highways did not simply follow suburbanization — they caused it. A classic of quasi-experimental design in spatial economics.',
+                  badges: ['famous'], url: 'https://doi.org/10.1162/qjec.122.2.775' }
+              ]
+            },
+            {
+              text: 'Does expanding broadband internet infrastructure in underserved areas increase local employment and economic activity?',
+              method: 'staggered rollout design using ISP deployment and FCC coverage records',
+              papers: [
+                { authors: 'Kolko, J.', year: 2012,
+                  title: 'Broadband speed and economic activity',
+                  venue: 'Information Economics and Policy, 24(2), 145–161',
+                  annotation: 'An early study of broadband\'s economic effects using within-zip-code variation. Finds positive effects on employment and population density, particularly for service industries. A useful foundational paper before more recent work on digital infrastructure and economic geography.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Kolko+2012+broadband+speed+economic+activity' },
+                { authors: 'Atasoy, H.', year: 2013,
+                  title: 'The effects of broadband internet expansion on labor market outcomes',
+                  venue: 'ILR Review, 66(2), 315–345',
+                  annotation: 'Uses variation in broadband availability from FCC data to estimate labor market effects. Finds that broadband access raises employment and wages, with particularly large effects outside metropolitan areas. Clean methodology and accessible writing — good for students interested in infrastructure and regional development.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Atasoy+2013+broadband+internet+expansion+labor+market' }
+              ]
+            }
+          ]
+        },
+        {
+          id: 'energy', color: '#6d28d9', tag: 'emerging',
+          name: 'Energy infrastructure &amp; the new economy',
+          desc: 'How do data centers, power plants, and electricity grid infrastructure interact with local land markets, public finance, and community welfare?',
+          questions: [
+            {
+              text: 'Do large industrial facility sitings — power plants, data centers, logistics hubs — raise or lower nearby residential property values, and how does the effect evolve over time?',
+              method: 'hedonic regression with event study around facility openings and closings',
+              papers: [
+                { authors: 'Currie, J., Davis, L., Greenstone, M., &amp; Walker, R.', year: 2015,
+                  title: 'Environmental health risks and housing values: Evidence from 1,600 toxic plant openings and closings',
+                  venue: 'American Economic Review, 105(2), 678–709',
+                  annotation: 'The best-identified study of how industrial facility siting affects nearby property values. Uses openings and closings of toxic plants to show large negative effects extending over a mile. Directly applicable as a methodological template for data center and energy facility research. The event study design — around both openings and closings — is the model to follow.',
+                  badges: ['famous', 'analog'], url: 'https://doi.org/10.1257/aer.20121656' },
+                { authors: 'Kiel, K. A., &amp; McClain, K. T.', year: 1995,
+                  title: 'House prices during siting decision stages: The case of an incinerator from rumor through operation',
+                  venue: 'Journal of Environmental Economics and Management, 28(2), 241–255',
+                  annotation: 'An early and readable hedonic study that traces property value effects through the full lifecycle of a disamenity: rumor, announcement, permitting, construction, and operation. Useful as a methodological template for studying announcement, construction, and operational phases of large energy or data infrastructure.',
+                  badges: ['accessible', 'analog'], url: 'https://scholar.google.com/scholar?q=Kiel+McClain+1995+house+prices+siting+incinerator' }
+              ]
+            },
+            {
+              text: 'When large new electricity loads (data centers, industrial customers) connect to the grid, what happens to wholesale prices and reliability for existing customers?',
+              method: 'event study using FERC interconnection data and nodal wholesale price records',
+              papers: [
+                { authors: 'Borenstein, S., &amp; Bushnell, J.', year: 2015,
+                  title: 'The US electricity industry after 20 years of restructuring',
+                  venue: 'Annual Review of Economics, 7(1), 437–463',
+                  annotation: 'The best accessible overview of how restructured electricity markets work: prices, congestion, market power, and investment incentives. Essential background for anyone studying how large new loads interact with grid economics. Assign before any empirical paper in this space.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Borenstein+Bushnell+2015+US+electricity+industry+restructuring+Annual+Review' },
+                { authors: 'Joskow, P. L.', year: 2008,
+                  title: 'Lessons learned from electricity market liberalization',
+                  venue: 'Energy Journal, 29(Special Issue 2), 9–42',
+                  annotation: 'A clear-eyed assessment of what electricity deregulation accomplished and what problems persist — congestion, investment incentives, resource adequacy, and the challenge of integrating new loads. Useful for understanding the institutional landscape within which data center siting and grid interconnection decisions occur.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Joskow+2008+lessons+electricity+market+liberalization+Energy+Journal' }
+              ]
+            },
+            {
+              text: 'Do local governments offer excessive tax incentives to attract data centers and large employers, and is there evidence of a fiscal race to the bottom across jurisdictions?',
+              method: 'cross-jurisdiction analysis of incentive packages versus subsequent fiscal and employment outcomes',
+              papers: [
+                { authors: 'Bartik, T. J.', year: 2018,
+                  title: 'Who benefits from economic development incentives? How incentive effects on local incomes and the income distribution vary with different mobility assumptions',
+                  venue: 'Upjohn Institute Technical Report 18-034',
+                  annotation: 'A comprehensive and accessible treatment of when local development incentives are — and are not — justified economically. Examines the conditions under which incentives create real local gains versus simply redistributing activity from elsewhere. Directly applicable to data center tax abatement debates that are playing out in Minnesota and Virginia.',
+                  badges: ['accessible'], url: 'https://scholar.google.com/scholar?q=Bartik+2018+who+benefits+economic+development+incentives+Upjohn' },
+                { authors: 'Greenstone, M., &amp; Moretti, E.', year: 2004,
+                  title: 'Bidding for industrial plants: Does winning a "Million Dollar Plant" increase welfare?',
+                  venue: 'NBER Working Paper No. 9844',
+                  annotation: 'Uses the "Million Dollar Plants" dataset to ask whether winning a competitive plant siting bid — often involving large incentive packages — actually increases county welfare. Finds positive effects on wages and property values, but notes that incentive packages often exceeded measurable welfare gains, raising questions about competitive bidding dynamics.',
+                  badges: ['accessible'], url: 'https://www.nber.org/papers/w9844' }
+              ]
+            }
+          ]
+        }
+      ];
+
+      let state = { level: 0, clusterId: null, questionIdx: null };
+
+      function render() {
+        const app = document.getElementById('nav-app');
+        const bc  = document.getElementById('nav-breadcrumb');
+        const ll  = document.getElementById('nav-level-label');
+        const ft  = document.getElementById('nav-footer-note');
+        bc.innerHTML = ''; ll.textContent = ''; ft.textContent = '';
+
+        if (state.level === 0) {
+          ll.textContent = 'Seven research clusters — select one to explore';
+          renderClusters(app);
+          ft.innerHTML = 'Badges: <strong style="color:#1d4ed8">famous</strong> = canonical / frequently cited &nbsp;·&nbsp; <strong style="color:#15803d">accessible</strong> = readable entry point &nbsp;·&nbsp; <strong style="color:#7e22ce">analog</strong> = methodological template from adjacent literature &nbsp;·&nbsp; <strong style="color:#b45309">emerging</strong> = active frontier';
+        } else if (state.level === 1) {
+          const cluster = clusters.find(c => c.id === state.clusterId);
+          makeBreadcrumb(bc, [{ label: 'All clusters', go: () => navTo(0) }, { label: cluster.name }]);
+          ll.textContent = 'Three research questions — select one to see key papers';
+          renderQuestions(app, cluster);
+        } else {
+          const cluster = clusters.find(c => c.id === state.clusterId);
+          const q = cluster.questions[state.questionIdx];
+          makeBreadcrumb(bc, [
+            { label: 'All clusters', go: () => navTo(0) },
+            { label: cluster.name, go: () => navTo(1, cluster.id) },
+            { label: 'Papers' }
+          ]);
+          ll.textContent = 'Key papers for this question';
+          renderPapers(app, q);
+        }
+      }
+
+      function navTo(level, clusterId, questionIdx) {
+        state = { level, clusterId: clusterId || null, questionIdx: questionIdx != null ? questionIdx : null };
+        render();
+      }
+
+      function makeBreadcrumb(container, items) {
+        items.forEach(function (item, i) {
+          if (i > 0) { var sep = el('span', { className: 'sep' }, '›'); container.appendChild(sep); }
+          if (item.go) {
+            var btn = el('button', {}, item.label);
+            btn.onclick = item.go; container.appendChild(btn);
+          } else {
+            container.appendChild(el('span', { className: 'current' }, item.label));
+          }
+        });
+      }
+
+      function el(tag, attrs, text) {
+        var e = document.createElement(tag);
+        if (attrs) Object.assign(e, attrs);
+        if (text) e.textContent = text;
+        return e;
+      }
+
+      function renderClusters(container) {
+        var grid = el('div', { className: 'cluster-grid' });
+        clusters.forEach(function (c) {
+          var card = el('div', { className: 'cluster-card', tabIndex: 0 });
+          card.style.setProperty('--c', c.color);
+          card.innerHTML = '<div class="ctag ' + c.tag + '">' + (c.tag === 'emerging' ? '✦ emerging' : c.tag) + '</div><h3>' + c.name + '</h3><p>' + c.desc + '</p>';
+          var go = function () { navTo(1, c.id); };
+          card.onclick = go;
+          card.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') go(); };
+          grid.appendChild(card);
+        });
+        container.innerHTML = '';
+        container.appendChild(grid);
+      }
+
+      function renderQuestions(container, cluster) {
+        var list = el('div', { className: 'q-list' });
+        cluster.questions.forEach(function (q, i) {
+          var card = el('div', { className: 'q-card', tabIndex: 0 });
+          card.innerHTML = '<span class="q-num">' + (i + 1) + '.</span><div class="q-body"><div class="q-text">' + q.text + '</div><div class="q-method">typical approach: ' + q.method + '</div></div><span class="q-arrow">›</span>';
+          var go = function () { navTo(2, cluster.id, i); };
+          card.onclick = go;
+          card.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') go(); };
+          list.appendChild(card);
+        });
+        container.innerHTML = '';
+        container.appendChild(list);
+      }
+
+      function renderPapers(container, q) {
+        container.innerHTML = '';
+        var framing = el('div', { className: 'q-framing' });
+        framing.innerHTML = '<strong>Research question</strong>' + q.text;
+        container.appendChild(framing);
+        var list = el('div', { className: 'paper-list' });
+        q.papers.forEach(function (p) {
+          var card = el('div', { className: 'paper-card' });
+          card.innerHTML =
+            '<div class="paper-meta">' + p.authors + ' (' + p.year + ')</div>' +
+            '<div class="paper-title"><a href="' + p.url + '" target="_blank" rel="noopener">' + p.title + '</a></div>' +
+            '<div class="paper-venue">' + p.venue + '</div>' +
+            '<div class="paper-annotation">' + p.annotation + '</div>' +
+            '<div class="badges">' + p.badges.map(function (b) { return '<span class="badge ' + b + '">' + b + '</span>'; }).join('') + '</div>';
+          list.appendChild(card);
+        });
+        container.appendChild(list);
+      }
+
+      render();
+    })();
+    </script>
   </section>
 
   <!-- WHAT YOU DO -->
