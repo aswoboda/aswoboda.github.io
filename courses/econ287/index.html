@@ -212,6 +212,32 @@
     line-height: 1.7;
   }
 
+  /* ── CHART FIGURE ───────────────────────────── */
+  .chart-figure {
+    margin: 1.75rem 0 0;
+    border: 1px solid var(--rule);
+    padding: 1.5rem 1.5rem 1rem;
+  }
+  .chart-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .chart-figure figcaption {
+    font-size: 0.78rem;
+    color: var(--ink-light);
+    font-family: var(--mono);
+    line-height: 1.6;
+    margin-top: 0.75rem;
+  }
+  .chart-label {
+    display: inline-block;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-right: 0.5rem;
+  }
+
   /* ── RESPONSIVE ──────────────────────────────── */
   @media (max-width: 700px) {
     .q-grid       { grid-template-columns: 1fr; }
@@ -236,7 +262,7 @@
   <!-- THE COURSE -->
   <section>
     <div class="label">The Course</div>
-    <p class="lede">Artificial intelligence is generating more confident predictions than credible evidence. This course brings the tools of economics — labor market analysis, externalities, market structure, and public policy — to bear on questions that are genuinely important and genuinely unsettled.</p>
+    <p class="lede">AI tools are quickly becoming better, faster, and cheaper. This course asks what that means — for workers, firms, markets, and policy. It brings the tools of economics — labor market analysis, externalities, market structure, and public policy — to bear on questions that are genuinely important and genuinely unsettled.</p>
     <p>We study AI the way economists study any significant technology: by asking who gains, who loses, what the incentives are, and what the evidence shows. The course takes neither a utopian nor a dismissive view. Both positions exist in the literature, and both deserve to be evaluated on their merits.</p>
 
     <div class="catalog-block">
@@ -306,6 +332,17 @@
     <div class="debate-note">
       <strong>The course's position:</strong> economics gives us tools to evaluate both claims — and to resist the temptation to choose between them based on temperament rather than evidence. By the end of the term, you will have a grounded view of where the evidence points and what remains genuinely uncertain.
     </div>
+
+    <figure class="chart-figure">
+      <img src="images/lm-inference-price-may26.png"
+           alt="Log-scale chart showing language model inference prices in USD per million tokens from Nov 2022 to May 2026, grouped by Intelligence Index. Prices have fallen by roughly two orders of magnitude across all model tiers.">
+      <figcaption>
+        <span class="chart-label">Exhibit A</span>
+        Language model inference price (USD per million tokens, log scale) by intelligence tier, Nov 2022 – May 2026.
+        Prices have fallen by roughly two orders of magnitude across all model tiers in three years.
+        Source: <a href="https://artificialanalysis.ai" target="_blank" rel="noopener">Artificial Analysis</a>, May 2026.
+      </figcaption>
+    </figure>
   </section>
 
   <!-- WHAT YOU DO -->
